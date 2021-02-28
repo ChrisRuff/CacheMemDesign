@@ -1,0 +1,154 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/simulation/qsim
+Ehard_block
+Z1 w1611635018
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 WOh:M[al;oVzG5c`<He>D0
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z7 DPx10 cycloneive 21 cycloneive_components 0 22 zGMDhP>8e@2k@f0e<PY]k2
+!i122 82
+R0
+Z8 8SimpleCompArch.vho
+Z9 FSimpleCompArch.vho
+l0
+L35 1
+VB]0;STalBkCB1_B4BXQDW2
+!s100 >mXi5[`cD`bFC`UBKA<om3
+Z10 OV;C;2020.1;71
+32
+Z11 !s110 1611635019
+!i10b 1
+Z12 !s108 1611635019.000000
+Z13 !s90 -work|work|SimpleCompArch.vho|
+Z14 !s107 SimpleCompArch.vho|
+!i113 1
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 10 hard_block 0 22 B]0;STalBkCB1_B4BXQDW2
+!i122 82
+l65
+L51 20
+Via>5o7W??azG@W@@eFOTF0
+!s100 [5;Wd8QGQ>@2NGoJ1I]Y43
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Esimplecomparch
+R1
+R3
+R7
+R2
+Z17 DPx6 altera 11 dffeas_pack 0 22 dc5N=DKXMMTVYdUQ@D3FA2
+R4
+R5
+R6
+Z18 DPx6 altera 28 altera_primitives_components 0 22 ca:ehlQAg4;_gVV:^8MAg3
+!i122 82
+R0
+R8
+R9
+l0
+L80 1
+VZEbzRXdHn7K=a88ORgagm0
+!s100 ]X94En8ZK7oAK;JhnRb3D0
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Astructure
+R3
+R7
+R2
+R17
+R4
+R5
+R6
+R18
+DEx4 work 14 simplecomparch 0 22 ZEbzRXdHn7K=a88ORgagm0
+!i122 82
+l10268
+L204 173893
+V3e1?NDd<4>F?Ee1;emW8X0
+!s100 LUAAhfV:k`4Ja4`9m4`Za3
+R10
+32
+!s110 1611635020
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Esimplecomparch_vhd_vec_tst
+Z19 w1611635016
+R5
+R6
+!i122 83
+R0
+Z20 8SimSimpleCompArch.vwf.vht
+Z21 FSimSimpleCompArch.vwf.vht
+l0
+L32 1
+VAfzSA<<F>LC=zhdi8EOR60
+!s100 ZS[MUcJX<Xh8^58z5N;`X2
+R10
+32
+Z22 !s110 1611635021
+!i10b 1
+Z23 !s108 1611635021.000000
+Z24 !s90 -work|work|SimSimpleCompArch.vwf.vht|
+Z25 !s107 SimSimpleCompArch.vwf.vht|
+!i113 1
+R15
+R16
+Asimplecomparch_arch
+R5
+R6
+Z26 DEx4 work 26 simplecomparch_vhd_vec_tst 0 22 AfzSA<<F>LC=zhdi8EOR60
+!i122 83
+l79
+Z27 L34 91
+Z28 VPgefXB3LlSXAbbH[nj3bD2
+Z29 !s100 _EOjKX60i_jKPon3K0m930
+R10
+32
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R15
+R16

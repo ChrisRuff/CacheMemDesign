@@ -1,0 +1,329 @@
+# do SimpleCompArch.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:23:39 on Jan 26,2021
+# vcom -work work SimpleCompArch.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity hard_block
+# -- Compiling architecture structure of hard_block
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Compiling entity SimpleCompArch
+# -- Compiling architecture structure of SimpleCompArch
+# End time: 00:23:41 on Jan 26,2021, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:23:41 on Jan 26,2021
+# vcom -work work SimSimpleCompArch.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SimpleCompArch_vhd_vec_tst
+# -- Compiling architecture SimpleCompArch_arch of SimpleCompArch_vhd_vec_tst
+# End time: 00:23:41 on Jan 26,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SimpleCompArch_vhd_vec_tst 
+# Start time: 00:23:41 on Jan 26,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.simplecomparch_vhd_vec_tst(simplecomparch_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading cycloneive.cycloneive_atom_pack(body)
+# Loading cycloneive.cycloneive_components
+# Loading work.simplecomparch(structure)
+# Loading work.hard_block(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneive.cycloneive_io_obuf(arch)
+# Loading cycloneive.cycloneive_io_ibuf(arch)
+# Loading cycloneive.cycloneive_clkctrl(vital_clkctrl)
+# Loading cycloneive.cycloneive_ena_reg(behave)
+# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
+# ** Warning: Design size of 1284912 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#35
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# Simulation time: 875000 ps
+# Simulation time: 875000 ps
+# Simulation time: 875000 ps
+# Simulation time: 875000 ps
+# Simulation time: 875000 ps
+# Simulation time: 875000 ps
+# Simulation time: 875000 ps
+# Simulation time: 875000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 1715000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 2575000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 3400000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 4245000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5080000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 5895000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 6735000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 7525000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 8355000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9155000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 9955000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 10775000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 11535000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 12325000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13135000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 13915000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 14665000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 15415000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 16205000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 17160000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 18125000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 19100000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 20095000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 21090000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 22085000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23025000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 23975000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 24965000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 25945000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 26895000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 27875000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 28870000 ps
+# Simulation time: 29860000 ps
+# End time: 00:35:07 on Jan 26,2021, Elapsed time: 0:11:26
+# Errors: 0, Warnings: 1
