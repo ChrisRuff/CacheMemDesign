@@ -5,7 +5,7 @@ use ieee.std_logic_arith.all;
 
 package MP_lib is
 
-type ram_type is array (0 to 255) of 
+type ram_type is array (0 to 2047) of 
         		std_logic_vector(15 downto 0);
 
 constant ZERO : std_logic_vector(15 downto 0) := "0000000000000000";
@@ -26,7 +26,7 @@ port (
 		cpu_rst					: in std_logic;
 		mdout_bus				: in std_logic_vector(15 downto 0); 
 		mdin_bus					: out std_logic_vector(15 downto 0); 
-		mem_addr					: out std_logic_vector(7 downto 0);
+		mem_addr					: out std_logic_vector(10 downto 0);
 		Mre_s						: out std_logic;
 		Mwe_s						: out std_logic;	
 		oe_s						: out std_logic;
@@ -101,7 +101,7 @@ port (
 	rst		: 	in std_logic;
 	Mre		:	in std_logic;
 	Mwe		:	in std_logic;
-	address	:	in std_logic_vector(7 downto 0);
+	address	:	in std_logic_vector(10 downto 0);
 	data_in	:	in std_logic_vector(15 downto 0);
 	data_out:	out std_logic_vector(15 downto 0)
 );

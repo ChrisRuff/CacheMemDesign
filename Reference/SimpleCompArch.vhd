@@ -27,7 +27,7 @@ port( sys_clk								:	in std_logic;
 
 		-- Debug signals from Memory: output for simulation purpose only	
 		D_mdout_bus,D_mdin_bus					: out std_logic_vector(15 downto 0); 
-		D_mem_addr											: out std_logic_vector(7 downto 0); 
+		D_mem_addr											: out std_logic_vector(10 downto 0); 
 		D_Mre,D_Mwe										: out std_logic 
 		-- end debug variables	
 );
@@ -37,7 +37,7 @@ architecture rtl of SimpleCompArch is
 --Memory local variables												  							        							(ORIGIN	-> DEST)
 	signal mdout_bus					: std_logic_vector(15 downto 0);  -- Mem data output 		(MEM  	-> CTLU)
 	signal mdin_bus					: std_logic_vector(15 downto 0);  -- Mem data bus input 	(CTRLER	-> Mem)
-	signal mem_addr					: std_logic_vector(7 downto 0);   -- Const. operand addr.(CTRLER	-> MEM)
+	signal mem_addr					: std_logic_vector(10 downto 0);   -- Const. operand addr.(CTRLER	-> MEM)
 	signal Mre							: std_logic;							 -- Mem. read enable  	(CTRLER	-> Mem) 
 	signal Mwe							: std_logic;							 -- Mem. write enable 	(CTRLER	-> Mem)
 

@@ -376,6 +376,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "D_mem_addr[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_mem_addr[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_mem_addr[10]",
+					"strict" : false
+				},
+				{
 					"name" : "D_Mre",
 					"strict" : false
 				},

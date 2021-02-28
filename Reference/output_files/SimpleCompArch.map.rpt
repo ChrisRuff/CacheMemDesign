@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SimpleCompArch
-Tue Jan 26 00:22:30 2021
+Sun Feb 28 16:04:15 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -52,16 +52,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jan 26 00:22:30 2021       ;
+; Analysis & Synthesis Status        ; Successful - Sun Feb 28 16:04:14 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SimpleCompArch                              ;
 ; Top-level Entity Name              ; SimpleCompArch                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 7,870                                       ;
-;     Total combinational functions  ; 3,712                                       ;
-;     Dedicated logic registers      ; 4,463                                       ;
-; Total registers                    ; 4463                                        ;
-; Total pins                         ; 97                                          ;
+; Total logic elements               ; 57,484                                      ;
+;     Total combinational functions  ; 24,654                                      ;
+;     Dedicated logic registers      ; 33,138                                      ;
+; Total registers                    ; 33138                                       ;
+; Total pins                         ; 100                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -164,37 +164,37 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
-;     Processor 3            ;   0.2%      ;
-;     Processor 4            ;   0.2%      ;
+;     Processor 2            ;   0.7%      ;
+;     Processor 3            ;   0.5%      ;
+;     Processor 4            ;   0.5%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                           ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                    ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+---------+
-; SimpleCompArch.vhd               ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimpleCompArch.vhd ;         ;
-; reg_file.vhd                     ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/reg_file.vhd       ;         ;
-; PC.vhd                           ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/PC.vhd             ;         ;
-; obuf.vhd                         ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/obuf.vhd           ;         ;
-; MP_lib.vhd                       ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/MP_lib.vhd         ;         ;
-; memory.vhd                       ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/memory.vhd         ;         ;
-; IR.vhd                           ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd             ;         ;
-; datapath.vhd                     ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datapath.vhd       ;         ;
-; ctrl_unit.vhd                    ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/ctrl_unit.vhd      ;         ;
-; CPU.vhd                          ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/CPU.vhd            ;         ;
-; controller.vhd                   ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/controller.vhd     ;         ;
-; alu.vhd                          ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/alu.vhd            ;         ;
-; addrmux.vhd                      ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/addrmux.vhd        ;         ;
-; datamux.vhd                      ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datamux.vhd        ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                          ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------+---------+
+; SimpleCompArch.vhd               ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd ;         ;
+; reg_file.vhd                     ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/reg_file.vhd       ;         ;
+; PC.vhd                           ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/PC.vhd             ;         ;
+; obuf.vhd                         ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/obuf.vhd           ;         ;
+; MP_lib.vhd                       ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/MP_lib.vhd         ;         ;
+; memory.vhd                       ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/memory.vhd         ;         ;
+; IR.vhd                           ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd             ;         ;
+; datapath.vhd                     ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd       ;         ;
+; ctrl_unit.vhd                    ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd      ;         ;
+; CPU.vhd                          ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd            ;         ;
+; controller.vhd                   ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd     ;         ;
+; alu.vhd                          ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd            ;         ;
+; addrmux.vhd                      ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/addrmux.vhd        ;         ;
+; datamux.vhd                      ; yes             ; User VHDL File  ; /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datamux.vhd        ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------+
@@ -202,30 +202,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 7,870         ;
+; Estimated Total logic elements              ; 57,484        ;
 ;                                             ;               ;
-; Total combinational functions               ; 3712          ;
+; Total combinational functions               ; 24654         ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 3157          ;
-;     -- 3 input functions                    ; 322           ;
-;     -- <=2 input functions                  ; 233           ;
+;     -- 4 input functions                    ; 22285         ;
+;     -- 3 input functions                    ; 2133          ;
+;     -- <=2 input functions                  ; 236           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 3689          ;
-;     -- arithmetic mode                      ; 23            ;
+;     -- normal mode                          ; 24628         ;
+;     -- arithmetic mode                      ; 26            ;
 ;                                             ;               ;
-; Total registers                             ; 4463          ;
-;     -- Dedicated logic registers            ; 4463          ;
+; Total registers                             ; 33138         ;
+;     -- Dedicated logic registers            ; 33138         ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 97            ;
+; I/O pins                                    ; 100           ;
 ;                                             ;               ;
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; sys_clk~input ;
-; Maximum fan-out                             ; 4463          ;
-; Total fan-out                               ; 31895         ;
-; Average fan-out                             ; 3.81          ;
+; Maximum fan-out                             ; 33138         ;
+; Total fan-out                               ; 228556        ;
+; Average fan-out                             ; 3.94          ;
 +---------------------------------------------+---------------+
 
 
@@ -234,18 +234,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name    ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------+--------------+
-; |SimpleCompArch            ; 3712 (0)            ; 4463 (0)                  ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |SimpleCompArch                                         ; SimpleCompArch ; work         ;
-;    |CPU:Unit1|             ; 526 (0)             ; 351 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1                               ; CPU            ; work         ;
-;       |ctrl_unit:Unit0|    ; 87 (0)              ; 63 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0               ; ctrl_unit      ; work         ;
+; |SimpleCompArch            ; 24654 (1)           ; 33138 (0)                 ; 0           ; 0            ; 0       ; 0         ; 100  ; 0            ; |SimpleCompArch                                         ; SimpleCompArch ; work         ;
+;    |CPU:Unit1|             ; 538 (0)             ; 354 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1                               ; CPU            ; work         ;
+;       |ctrl_unit:Unit0|    ; 94 (0)              ; 66 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0               ; ctrl_unit      ; work         ;
 ;          |IR:U2|           ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|IR:U2         ; IR             ; work         ;
-;          |PC:U1|           ; 10 (10)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1         ; PC             ; work         ;
-;          |addrmux:U3|      ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3    ; addrmux        ; work         ;
+;          |PC:U1|           ; 14 (14)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1         ; PC             ; work         ;
+;          |addrmux:U3|      ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3    ; addrmux        ; work         ;
 ;          |controller:U0|   ; 45 (45)             ; 55 (55)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|controller:U0 ; controller     ; work         ;
-;       |datapath:Unit1|     ; 439 (0)             ; 288 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|datapath:Unit1                ; datapath       ; work         ;
-;          |alu:U3|          ; 71 (71)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|alu:U3         ; alu            ; work         ;
+;       |datapath:Unit1|     ; 444 (0)             ; 288 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|datapath:Unit1                ; datapath       ; work         ;
+;          |alu:U3|          ; 76 (76)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|alu:U3         ; alu            ; work         ;
 ;          |datamux:U1|      ; 24 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|datamux:U1     ; datamux        ; work         ;
 ;          |reg_file:U2|     ; 344 (344)           ; 288 (288)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|reg_file:U2    ; reg_file       ; work         ;
-;    |memory:Unit2|          ; 3186 (3186)         ; 4112 (4112)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|memory:Unit2                            ; memory         ; work         ;
+;    |memory:Unit2|          ; 24115 (24115)       ; 32784 (32784)             ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|memory:Unit2                            ; memory         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -399,8 +399,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|maccesdelay[0]     ; Stuck at VCC due to stuck port clock_enable                       ;
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|maccesdelay[1..30] ; Stuck at GND due to stuck port clock_enable                       ;
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|maccesdelay[31]    ; Stuck at VCC due to stuck port clock_enable                       ;
-; CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[8..15]              ; Lost fanout                                                       ;
-; Total Number of Removed Registers = 71                     ;                                                                   ;
+; CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[11..15]             ; Lost fanout                                                       ;
+; Total Number of Removed Registers = 68                     ;                                                                   ;
 +------------------------------------------------------------+-------------------------------------------------------------------+
 
 
@@ -448,12 +448,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4463  ;
+; Total registers                              ; 33138 ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 8     ;
-; Number of registers using Asynchronous Clear ; 4447  ;
+; Number of registers using Synchronous Load   ; 11    ;
+; Number of registers using Asynchronous Clear ; 33122 ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 4424  ;
+; Number of registers using Clock Enable       ; 33099 ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -463,105 +463,105 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------------+---------+
 ; Inverted Register                                  ; Fan out ;
 +----------------------------------------------------+---------+
-; CPU:Unit1|ctrl_unit:Unit0|controller:U0|Ms_ctrl[1] ; 15      ;
+; CPU:Unit1|ctrl_unit:Unit0|controller:U0|Ms_ctrl[1] ; 19      ;
 ; memory:Unit2|tmp_ram[33][0]                        ; 1       ;
+; memory:Unit2|tmp_ram[25][0]                        ; 1       ;
+; memory:Unit2|tmp_ram[27][0]                        ; 1       ;
 ; memory:Unit2|tmp_ram[16][0]                        ; 1       ;
 ; memory:Unit2|tmp_ram[29][0]                        ; 1       ;
-; memory:Unit2|tmp_ram[27][0]                        ; 1       ;
-; memory:Unit2|tmp_ram[25][0]                        ; 1       ;
 ; memory:Unit2|tmp_ram[31][0]                        ; 1       ;
-; memory:Unit2|tmp_ram[8][0]                         ; 1       ;
 ; memory:Unit2|tmp_ram[5][0]                         ; 1       ;
-; memory:Unit2|tmp_ram[1][0]                         ; 1       ;
+; memory:Unit2|tmp_ram[8][0]                         ; 1       ;
 ; memory:Unit2|tmp_ram[2][0]                         ; 1       ;
+; memory:Unit2|tmp_ram[1][0]                         ; 1       ;
 ; memory:Unit2|tmp_ram[15][0]                        ; 1       ;
-; memory:Unit2|tmp_ram[25][1]                        ; 1       ;
+; memory:Unit2|tmp_ram[33][1]                        ; 1       ;
+; memory:Unit2|tmp_ram[32][1]                        ; 1       ;
 ; memory:Unit2|tmp_ram[29][1]                        ; 1       ;
+; memory:Unit2|tmp_ram[25][1]                        ; 1       ;
 ; memory:Unit2|tmp_ram[28][1]                        ; 1       ;
 ; memory:Unit2|tmp_ram[24][1]                        ; 1       ;
 ; memory:Unit2|tmp_ram[8][1]                         ; 1       ;
-; memory:Unit2|tmp_ram[32][1]                        ; 1       ;
-; memory:Unit2|tmp_ram[33][1]                        ; 1       ;
-; memory:Unit2|tmp_ram[7][1]                         ; 1       ;
 ; memory:Unit2|tmp_ram[23][1]                        ; 1       ;
+; memory:Unit2|tmp_ram[7][1]                         ; 1       ;
 ; memory:Unit2|tmp_ram[27][2]                        ; 1       ;
-; memory:Unit2|tmp_ram[28][2]                        ; 1       ;
-; memory:Unit2|tmp_ram[26][2]                        ; 1       ;
-; memory:Unit2|tmp_ram[16][2]                        ; 1       ;
 ; memory:Unit2|tmp_ram[29][2]                        ; 1       ;
-; memory:Unit2|tmp_ram[6][2]                         ; 1       ;
-; memory:Unit2|tmp_ram[10][2]                        ; 1       ;
+; memory:Unit2|tmp_ram[26][2]                        ; 1       ;
+; memory:Unit2|tmp_ram[28][2]                        ; 1       ;
 ; memory:Unit2|tmp_ram[9][2]                         ; 1       ;
 ; memory:Unit2|tmp_ram[12][2]                        ; 1       ;
-; memory:Unit2|tmp_ram[33][3]                        ; 1       ;
-; memory:Unit2|tmp_ram[32][3]                        ; 1       ;
+; memory:Unit2|tmp_ram[10][2]                        ; 1       ;
+; memory:Unit2|tmp_ram[16][2]                        ; 1       ;
+; memory:Unit2|tmp_ram[6][2]                         ; 1       ;
+; memory:Unit2|tmp_ram[30][3]                        ; 1       ;
 ; memory:Unit2|tmp_ram[12][3]                        ; 1       ;
-; memory:Unit2|tmp_ram[10][3]                        ; 1       ;
-; memory:Unit2|tmp_ram[3][3]                         ; 1       ;
-; memory:Unit2|tmp_ram[9][3]                         ; 1       ;
-; memory:Unit2|tmp_ram[16][3]                        ; 1       ;
-; memory:Unit2|tmp_ram[23][3]                        ; 1       ;
 ; memory:Unit2|tmp_ram[31][3]                        ; 1       ;
 ; memory:Unit2|tmp_ram[22][3]                        ; 1       ;
-; memory:Unit2|tmp_ram[30][3]                        ; 1       ;
-; memory:Unit2|tmp_ram[13][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[9][4]                         ; 1       ;
-; memory:Unit2|tmp_ram[28][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[24][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[12][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[8][4]                         ; 1       ;
-; memory:Unit2|tmp_ram[29][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[25][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[7][4]                         ; 1       ;
-; memory:Unit2|tmp_ram[6][4]                         ; 1       ;
-; memory:Unit2|tmp_ram[18][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[22][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[33][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[20][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[32][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[21][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[15][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[14][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[27][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[26][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[23][3]                        ; 1       ;
+; memory:Unit2|tmp_ram[10][3]                        ; 1       ;
+; memory:Unit2|tmp_ram[9][3]                         ; 1       ;
+; memory:Unit2|tmp_ram[33][3]                        ; 1       ;
+; memory:Unit2|tmp_ram[32][3]                        ; 1       ;
+; memory:Unit2|tmp_ram[16][3]                        ; 1       ;
+; memory:Unit2|tmp_ram[3][3]                         ; 1       ;
 ; memory:Unit2|tmp_ram[11][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[9][4]                         ; 1       ;
+; memory:Unit2|tmp_ram[14][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[12][4]                        ; 1       ;
 ; memory:Unit2|tmp_ram[10][4]                        ; 1       ;
-; memory:Unit2|tmp_ram[31][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[8][4]                         ; 1       ;
+; memory:Unit2|tmp_ram[15][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[13][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[22][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[18][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[20][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[21][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[33][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[32][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[6][4]                         ; 1       ;
+; memory:Unit2|tmp_ram[7][4]                         ; 1       ;
 ; memory:Unit2|tmp_ram[30][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[28][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[27][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[25][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[26][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[24][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[31][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[29][4]                        ; 1       ;
+; memory:Unit2|tmp_ram[12][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[7][5]                         ; 1       ;
+; memory:Unit2|tmp_ram[6][5]                         ; 1       ;
+; memory:Unit2|tmp_ram[31][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[30][5]                        ; 1       ;
 ; memory:Unit2|tmp_ram[29][5]                        ; 1       ;
 ; memory:Unit2|tmp_ram[28][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[12][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[27][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[26][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[10][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[25][5]                        ; 1       ;
 ; memory:Unit2|tmp_ram[9][5]                         ; 1       ;
-; memory:Unit2|tmp_ram[24][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[8][5]                         ; 1       ;
-; memory:Unit2|tmp_ram[30][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[31][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[7][5]                         ; 1       ;
-; memory:Unit2|tmp_ram[33][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[6][5]                         ; 1       ;
-; memory:Unit2|tmp_ram[32][5]                        ; 1       ;
-; memory:Unit2|tmp_ram[19][5]                        ; 1       ;
 ; memory:Unit2|tmp_ram[17][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[33][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[25][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[10][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[26][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[8][5]                         ; 1       ;
+; memory:Unit2|tmp_ram[32][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[24][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[19][5]                        ; 1       ;
+; memory:Unit2|tmp_ram[27][5]                        ; 1       ;
 ; memory:Unit2|tmp_ram[18][6]                        ; 1       ;
 ; memory:Unit2|tmp_ram[14][6]                        ; 1       ;
-; memory:Unit2|tmp_ram[22][8]                        ; 1       ;
-; memory:Unit2|tmp_ram[18][8]                        ; 1       ;
-; memory:Unit2|tmp_ram[21][8]                        ; 1       ;
 ; memory:Unit2|tmp_ram[5][8]                         ; 1       ;
 ; memory:Unit2|tmp_ram[1][8]                         ; 1       ;
+; memory:Unit2|tmp_ram[21][8]                        ; 1       ;
+; memory:Unit2|tmp_ram[22][8]                        ; 1       ;
+; memory:Unit2|tmp_ram[18][8]                        ; 1       ;
 ; memory:Unit2|tmp_ram[8][8]                         ; 1       ;
-; memory:Unit2|tmp_ram[19][8]                        ; 1       ;
 ; memory:Unit2|tmp_ram[7][8]                         ; 1       ;
+; memory:Unit2|tmp_ram[19][8]                        ; 1       ;
 ; memory:Unit2|tmp_ram[3][8]                         ; 1       ;
 ; memory:Unit2|tmp_ram[14][9]                        ; 1       ;
+; memory:Unit2|tmp_ram[22][9]                        ; 1       ;
 ; memory:Unit2|tmp_ram[21][9]                        ; 1       ;
-; memory:Unit2|tmp_ram[17][9]                        ; 1       ;
 ; memory:Unit2|tmp_ram[20][9]                        ; 1       ;
-; memory:Unit2|tmp_ram[6][9]                         ; 1       ;
+; memory:Unit2|tmp_ram[17][9]                        ; 1       ;
 ; memory:Unit2|tmp_ram[3][9]                         ; 1       ;
 ; Total number of inverted registers = 186*          ;         ;
 +----------------------------------------------------+---------+
@@ -574,15 +574,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[15]    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[0]     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[5]     ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|reg_file:U2|RFr1[0]  ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|reg_file:U2|RFr2[15] ;
-; 256:1              ; 16 bits   ; 2720 LEs      ; 2720 LEs             ; 0 LEs                  ; Yes        ; |SimpleCompArch|memory:Unit2|data_out[12]                     ;
+; 2048:1             ; 16 bits   ; 21840 LEs     ; 21840 LEs            ; 0 LEs                  ; Yes        ; |SimpleCompArch|memory:Unit2|data_out[12]                     ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|datamux:U1|Mux0      ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|datamux:U1|Mux13     ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|alu:U3|Mux6          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux8     ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux14    ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|alu:U3|Mux5          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux7     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux11    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux15    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 
 
@@ -595,13 +596,13 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------+-------+----------+-----------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CPU:Unit1|ctrl_unit:Unit0"                                                                     ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; maddr_in[15..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:Unit1|ctrl_unit:Unit0"                                                                      ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; maddr_in[15..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -609,25 +610,26 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 97                          ;
-; cycloneiii_ff         ; 4463                        ;
+; boundary_port         ; 100                         ;
+; cycloneiii_ff         ; 33138                       ;
 ;     CLR               ; 39                          ;
 ;     ENA               ; 16                          ;
-;     ENA CLR           ; 4400                        ;
-;     ENA CLR SLD       ; 8                           ;
+;     ENA CLR           ; 33072                       ;
+;     ENA CLR SLD       ; 11                          ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 3712                        ;
-;     arith             ; 23                          ;
-;         2 data inputs ; 8                           ;
+; cycloneiii_lcell_comb ; 24654                       ;
+;     arith             ; 26                          ;
+;         2 data inputs ; 11                          ;
 ;         3 data inputs ; 15                          ;
-;     normal            ; 3689                        ;
+;     normal            ; 24628                       ;
+;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 185                         ;
-;         2 data inputs ; 40                          ;
-;         3 data inputs ; 307                         ;
-;         4 data inputs ; 3157                        ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 2118                        ;
+;         4 data inputs ; 22285                       ;
 ;                       ;                             ;
-; Max LUT depth         ; 10.00                       ;
-; Average LUT depth     ; 6.53                        ;
+; Max LUT depth         ; 13.00                       ;
+; Average LUT depth     ; 9.21                        ;
 +-----------------------+-----------------------------+
 
 
@@ -636,7 +638,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:01:30     ;
 +----------------+--------------+
 
 
@@ -646,123 +648,123 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Jan 26 00:22:10 2021
+    Info: Processing started: Sun Feb 28 16:02:30 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SimpleCompArch -c SimpleCompArch
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file SimpleCompArch.vhd
-    Info (12022): Found design unit 1: SimpleCompArch-rtl File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimpleCompArch.vhd Line: 36
-    Info (12023): Found entity 1: SimpleCompArch File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimpleCompArch.vhd Line: 15
+    Info (12022): Found design unit 1: SimpleCompArch-rtl File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 36
+    Info (12023): Found entity 1: SimpleCompArch File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file reg_file.vhd
-    Info (12022): Found design unit 1: reg_file-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/reg_file.vhd Line: 31
-    Info (12023): Found entity 1: reg_file File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/reg_file.vhd Line: 16
+    Info (12022): Found design unit 1: reg_file-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/reg_file.vhd Line: 31
+    Info (12023): Found entity 1: reg_file File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/reg_file.vhd Line: 16
 Info (12021): Found 2 design units, including 1 entities, in source file PC.vhd
-    Info (12022): Found design unit 1: PC-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/PC.vhd Line: 24
-    Info (12023): Found entity 1: PC File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/PC.vhd Line: 14
+    Info (12022): Found design unit 1: PC-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/PC.vhd Line: 24
+    Info (12023): Found entity 1: PC File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/PC.vhd Line: 14
 Info (12021): Found 2 design units, including 1 entities, in source file obuf.vhd
-    Info (12022): Found design unit 1: obuf-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/obuf.vhd Line: 21
-    Info (12023): Found entity 1: obuf File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/obuf.vhd Line: 14
+    Info (12022): Found design unit 1: obuf-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/obuf.vhd Line: 21
+    Info (12023): Found entity 1: obuf File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/obuf.vhd Line: 14
 Info (12021): Found 2 design units, including 0 entities, in source file MP_lib.vhd
-    Info (12022): Found design unit 1: MP_lib File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/MP_lib.vhd Line: 6
-    Info (12022): Found design unit 2: MP_lib-body File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/MP_lib.vhd Line: 204
+    Info (12022): Found design unit 1: MP_lib File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/MP_lib.vhd Line: 6
+    Info (12022): Found design unit 2: MP_lib-body File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/MP_lib.vhd Line: 204
 Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
-    Info (12022): Found design unit 1: memory-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/memory.vhd Line: 26
-    Info (12023): Found entity 1: memory File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/memory.vhd Line: 15
+    Info (12022): Found design unit 1: memory-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/memory.vhd Line: 26
+    Info (12023): Found entity 1: memory File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/memory.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file IR.vhd
-    Info (12022): Found design unit 1: IR-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 22
-    Info (12023): Found entity 1: IR File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 14
+    Info (12022): Found design unit 1: IR-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 22
+    Info (12023): Found entity 1: IR File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 14
 Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhd
-    Info (12022): Found design unit 1: datapath-struct File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datapath.vhd Line: 37
-    Info (12023): Found entity 1: datapath File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datapath.vhd Line: 16
+    Info (12022): Found design unit 1: datapath-struct File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 37
+    Info (12023): Found entity 1: datapath File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 16
 Info (12021): Found 2 design units, including 1 entities, in source file ctrl_unit.vhd
-    Info (12022): Found design unit 1: ctrl_unit-struct File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/ctrl_unit.vhd Line: 39
-    Info (12023): Found entity 1: ctrl_unit File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/ctrl_unit.vhd Line: 16
+    Info (12022): Found design unit 1: ctrl_unit-struct File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 39
+    Info (12023): Found entity 1: ctrl_unit File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 16
 Info (12021): Found 2 design units, including 1 entities, in source file CPU.vhd
-    Info (12022): Found design unit 1: CPU-structure File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/CPU.vhd Line: 36
-    Info (12023): Found entity 1: CPU File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/CPU.vhd Line: 15
+    Info (12022): Found design unit 1: CPU-structure File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 36
+    Info (12023): Found entity 1: CPU File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
-    Info (12022): Found design unit 1: controller-fsm File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/controller.vhd Line: 39
-    Info (12023): Found entity 1: controller File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/controller.vhd Line: 16
+    Info (12022): Found design unit 1: controller-fsm File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 39
+    Info (12023): Found entity 1: controller File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 16
 Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
-    Info (12022): Found design unit 1: alu-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/alu.vhd Line: 25
-    Info (12023): Found entity 1: alu File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/alu.vhd Line: 15
+    Info (12022): Found design unit 1: alu-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 25
+    Info (12023): Found entity 1: alu File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file addrmux.vhd
-    Info (12022): Found design unit 1: addrmux-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/addrmux.vhd Line: 23
-    Info (12023): Found entity 1: addrmux File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/addrmux.vhd Line: 13
+    Info (12022): Found design unit 1: addrmux-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/addrmux.vhd Line: 23
+    Info (12023): Found entity 1: addrmux File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/addrmux.vhd Line: 13
 Info (12021): Found 2 design units, including 1 entities, in source file datamux.vhd
-    Info (12022): Found design unit 1: datamux-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datamux.vhd Line: 22
-    Info (12023): Found entity 1: datamux File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datamux.vhd Line: 13
+    Info (12022): Found design unit 1: datamux-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datamux.vhd Line: 22
+    Info (12023): Found entity 1: datamux File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datamux.vhd Line: 13
 Info (12127): Elaborating entity "SimpleCompArch" for the top level hierarchy
-Info (12128): Elaborating entity "CPU" for hierarchy "CPU:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimpleCompArch.vhd Line: 48
-Info (12128): Elaborating entity "ctrl_unit" for hierarchy "CPU:Unit1|ctrl_unit:Unit0" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/CPU.vhd Line: 53
-Info (12128): Elaborating entity "controller" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|controller:U0" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/ctrl_unit.vhd Line: 52
-Warning (10631): VHDL Process Statement warning at controller.vhd(49): inferring latch(es) for signal or variable "usedelay", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/controller.vhd Line: 49
-Info (10041): Inferred latch for "usedelay" at controller.vhd(49) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/controller.vhd Line: 49
-Info (12128): Elaborating entity "PC" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|PC:U1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/ctrl_unit.vhd Line: 56
-Info (12128): Elaborating entity "IR" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|IR:U2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/ctrl_unit.vhd Line: 57
-Warning (10631): VHDL Process Statement warning at IR.vhd(24): inferring latch(es) for signal or variable "IRout", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Warning (10631): VHDL Process Statement warning at IR.vhd(24): inferring latch(es) for signal or variable "dir_addr", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[0]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[1]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[2]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[3]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[4]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[5]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[6]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[7]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[8]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[9]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[10]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[11]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[12]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[13]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[14]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "dir_addr[15]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[0]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[1]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[2]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[3]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[4]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[5]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[6]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[7]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[8]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[9]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[10]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[11]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[12]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[13]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[14]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (10041): Inferred latch for "IRout[15]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (12128): Elaborating entity "addrmux" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|addrmux:U3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/ctrl_unit.vhd Line: 58
-Info (12128): Elaborating entity "datapath" for hierarchy "CPU:Unit1|datapath:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/CPU.vhd Line: 55
-Info (12128): Elaborating entity "datamux" for hierarchy "CPU:Unit1|datapath:Unit1|datamux:U1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datapath.vhd Line: 44
-Info (12128): Elaborating entity "reg_file" for hierarchy "CPU:Unit1|datapath:Unit1|reg_file:U2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datapath.vhd Line: 46
-Info (12128): Elaborating entity "alu" for hierarchy "CPU:Unit1|datapath:Unit1|alu:U3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/datapath.vhd Line: 50
-Info (12128): Elaborating entity "memory" for hierarchy "memory:Unit2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimpleCompArch.vhd Line: 52
-Info (12128): Elaborating entity "obuf" for hierarchy "obuf:Unit3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimpleCompArch.vhd Line: 53
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 48
+Info (12128): Elaborating entity "ctrl_unit" for hierarchy "CPU:Unit1|ctrl_unit:Unit0" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 53
+Info (12128): Elaborating entity "controller" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|controller:U0" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at controller.vhd(50): inferring latch(es) for signal or variable "usedelay", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 50
+Info (10041): Inferred latch for "usedelay" at controller.vhd(50) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 50
+Info (12128): Elaborating entity "PC" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|PC:U1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 56
+Info (12128): Elaborating entity "IR" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|IR:U2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 57
+Warning (10631): VHDL Process Statement warning at IR.vhd(24): inferring latch(es) for signal or variable "IRout", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Warning (10631): VHDL Process Statement warning at IR.vhd(24): inferring latch(es) for signal or variable "dir_addr", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[0]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[1]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[2]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[3]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[4]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[5]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[6]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[7]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[8]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[9]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[10]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[11]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[12]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[13]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[14]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "dir_addr[15]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[0]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[1]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[2]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[3]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[4]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[5]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[6]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[7]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[8]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[9]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[10]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[11]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[12]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[13]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[14]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (10041): Inferred latch for "IRout[15]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (12128): Elaborating entity "addrmux" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|addrmux:U3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 58
+Info (12128): Elaborating entity "datapath" for hierarchy "CPU:Unit1|datapath:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 55
+Info (12128): Elaborating entity "datamux" for hierarchy "CPU:Unit1|datapath:Unit1|datamux:U1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 44
+Info (12128): Elaborating entity "reg_file" for hierarchy "CPU:Unit1|datapath:Unit1|reg_file:U2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 46
+Info (12128): Elaborating entity "alu" for hierarchy "CPU:Unit1|datapath:Unit1|alu:U3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 50
+Info (12128): Elaborating entity "memory" for hierarchy "memory:Unit2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 52
+Info (12128): Elaborating entity "obuf" for hierarchy "obuf:Unit3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 53
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[0]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[0]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[1]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[1]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[2]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[2]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[3]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[3]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[4]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[4]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[5]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[5]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[6]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[6]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[7]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[7]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/IR.vhd Line: 24
-Info (13000): Registers with preset signals will power-up high File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/controller.vhd Line: 53
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[0]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[0]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[1]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[1]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[2]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[2]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[3]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[3]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[4]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[4]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[5]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[5]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[6]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[6]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+    Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[7]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[7]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
+Info (13000): Registers with preset signals will power-up high File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 54
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 10 registers lost all their fanouts during netlist optimizations.
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 8007 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 57624 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 95 output pins
-    Info (21061): Implemented 7910 logic cells
+    Info (21059): Implemented 98 output pins
+    Info (21061): Implemented 57524 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 473 megabytes
-    Info: Processing ended: Tue Jan 26 00:22:30 2021
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:33
+    Info: Peak virtual memory: 734 megabytes
+    Info: Processing ended: Sun Feb 28 16:04:15 2021
+    Info: Elapsed time: 00:01:45
+    Info: Total CPU time (on all processors): 00:01:57
 
 
