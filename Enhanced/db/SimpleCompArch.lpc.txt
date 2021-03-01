@@ -4,6 +4,8 @@
 ; Hierarchy      ; Input ; Constant Input ; Unused Input ; Floating Input ; Output ; Constant Output ; Unused Output ; Floating Output ; Bidir ; Constant Bidir ; Unused Bidir ; Input only Bidir ; Output only Bidir ;
 +----------------+-------+----------------+--------------+----------------+--------+-----------------+---------------+-----------------+-------+----------------+--------------+------------------+-------------------+
 ; Unit3          ; 17    ; 0              ; 0            ; 0              ; 16     ; 0               ; 0             ; 0               ; 0     ; 0              ; 0            ; 0                ; 0                 ;
+; Unit2|Unit3    ; 79    ; 0              ; 2            ; 0              ; 64     ; 0               ; 0             ; 0               ; 0     ; 0              ; 0            ; 0                ; 0                 ;
+; Unit2|Unit2    ; 96    ; 0              ; 0            ; 0              ; 81     ; 0               ; 0             ; 0               ; 0     ; 0              ; 0            ; 0                ; 0                 ;
 ; Unit2          ; 31    ; 0              ; 0            ; 0              ; 16     ; 0               ; 0             ; 0               ; 0     ; 0              ; 0            ; 0                ; 0                 ;
 ; Unit1|Unit1|U3 ; 35    ; 0              ; 0            ; 0              ; 17     ; 0               ; 0             ; 0               ; 0     ; 0              ; 0            ; 0                ; 0                 ;
 ; Unit1|Unit1|U2 ; 33    ; 0              ; 0            ; 0              ; 32     ; 0               ; 0             ; 0               ; 0     ; 0              ; 0            ; 0                ; 0                 ;

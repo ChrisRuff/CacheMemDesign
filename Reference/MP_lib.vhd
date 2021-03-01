@@ -17,8 +17,8 @@ constant mov4 : std_logic_vector(3 downto 0) := "0011";
 constant add  : std_logic_vector(3 downto 0) := "0100";
 constant subt : std_logic_vector(3 downto 0) := "0101";
 constant jz  : std_logic_vector(3 downto 0) := "0110";
-constant halt  : std_logic_vector(3 downto 0) := "1111";
 constant readm  : std_logic_vector(3 downto 0) := "0111";
+constant halt  : std_logic_vector(3 downto 0) := "1111";
 
 component CPU is
 port (	

@@ -34,6 +34,8 @@ port( sys_clk								:	in std_logic;
 end;
 
 architecture rtl of SimpleCompArch is
+
+
 --Memory local variables												  							        							(ORIGIN	-> DEST)
 	signal mdout_bus					: std_logic_vector(15 downto 0);  -- Mem data output 		(MEM  	-> CTLU)
 	signal mdin_bus					: std_logic_vector(15 downto 0);  -- Mem data bus input 	(CTRLER	-> Mem)
@@ -42,18 +44,19 @@ architecture rtl of SimpleCompArch is
 	signal Mwe							: std_logic;							 -- Mem. write enable 	(CTRLER	-> Mem)
 	signal hit							: std_logic; 
 	--System local variables
-	signal oe							: std_logic;	
+	signal oe							: std_logic;
+
+	
 begin
-
-Unit1: CPU port map (sys_clk,sys_rst,mdout_bus,mdin_bus,mem_addr,Mre,Mwe,oe,
-										D_rfout_bus,D_RFwa, D_RFr1a, D_RFr2a,D_RFwe, 			 				--Degug signals
-										D_RFr1e, D_RFr2e,D_RFs, D_ALUs,D_PCld, D_jpz);	 						--Degug signals
-																					
-Unit2: cache port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus, hit);
-
-AHeckingUnit: memory port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus);
-
-Unit3: obuf port map(oe, mdout_bus, sys_output);
+	
+	
+	
+	Unit1: CPU port map (sys_clk,sys_rst,mdout_bus,mdin_bus,mem_addr,Mre,Mwe,oe,
+											D_rfout_bus,D_RFwa, D_RFr1a, D_RFr2a,D_RFwe, 			 				--Degug signals
+											D_RFr1e, D_RFr2e,D_RFs, D_ALUs,D_PCld, D_jpz);	 						--Degug signals
+																						
+	Unit2: cachecontroller port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus);
+	Unit3: obuf port map(oe, mdout_bus, sys_output);
 
 -- Debug signals: output to upper level for simulation purpose only
 	D_mdout_bus <= mdout_bus;	
@@ -62,7 +65,4 @@ Unit3: obuf port map(oe, mdout_bus, sys_output);
 	D_Mre <= Mre;
 	D_Mwe <= Mwe;
 -- end debug variables		
-	
-	
-	
-end rtl;
+end rtl; 

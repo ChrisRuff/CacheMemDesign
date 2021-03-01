@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Mar  1 13:41:45 2021
+Analysis & Synthesis Status : Successful - Mon Mar  1 18:19:19 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : SimpleCompArch
 Top-level Entity Name : SimpleCompArch
 Family : Cyclone IV E
-Total logic elements : 57,484
-    Total combinational functions : 24,654
-    Dedicated logic registers : 33,138
-Total registers : 33138
+Total logic elements : 56,663
+    Total combinational functions : 23,609
+    Dedicated logic registers : 33,582
+Total registers : 33582
 Total pins : 100
 Total virtual pins : 0
 Total memory bits : 0

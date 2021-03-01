@@ -1,4 +1,10 @@
 
+State Machine - |SimpleCompArch|cachecontroller:Unit2|cache_state
+Name cache_state.reset cache_state.rest cache_state.w 
+cache_state.w 0 0 0 
+cache_state.rest 0 1 1 
+cache_state.reset 1 0 1 
+
 State Machine - |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|controller:U0|delaystate
 Name delaystate.S11a delaystate.S11 delaystate.S10 delaystate.S9b delaystate.S9a delaystate.S9 delaystate.S8b delaystate.S8a delaystate.S8 delaystate.S7b delaystate.S7a delaystate.S7 delaystate.S6a delaystate.S6 delaystate.S5b delaystate.S5a delaystate.S5 delaystate.S4b delaystate.S4a delaystate.S4 delaystate.S3b delaystate.S3a delaystate.S3 delaystate.S2 delaystate.S1b delaystate.S1a delaystate.S1 delaystate.Sdly delaystate.S0 
 delaystate.S0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 

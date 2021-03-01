@@ -6,10 +6,18 @@
 -- structural modeling
 -- CPU.vhd
 --------------------------------------------------------
+--------------------------------------------------------
+-- SSimple Computer Architecture
+--
+-- memory 256*16
+-- 11 bit address; 16 bit data
+-- memory.vhd
+--------------------------------------------------------
 
 library	ieee;
-use ieee.std_logic_1164.all;  
-use ieee.numeric_std.all;			   
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;   
 use work.MP_lib.all;
 
 entity CPU is

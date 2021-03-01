@@ -73,6 +73,7 @@ set_global_assignment -name EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY .\\Si
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
 set_global_assignment -name OPTIMIZATION_MODE BALANCED
 set_global_assignment -name FITTER_EFFORT "FAST FIT"
+set_global_assignment -name VHDL_FILE cachecontroller.vhd
 set_global_assignment -name VHDL_FILE cache.vhd
 set_global_assignment -name VHDL_FILE SimpleCompArch.vhd
 set_global_assignment -name VHDL_FILE reg_file.vhd

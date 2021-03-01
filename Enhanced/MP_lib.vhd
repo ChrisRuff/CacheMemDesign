@@ -8,7 +8,7 @@ package MP_lib is
 type ram_type is array (0 to 2047) of 
         		std_logic_vector(15 downto 0);
 
-constant ZERO : std_logic_vector(15 downto 0) := "0000000000000000";
+constant ZERO : std_logic_vector(15 downto 0) :=  "0000000000000000";
 constant HIRES : std_logic_vector(15 downto 0) := "ZZZZZZZZZZZZZZZZ";
 constant mov1 : std_logic_vector(3 downto 0) := "0000";
 constant mov2 : std_logic_vector(3 downto 0) := "0001";
@@ -102,8 +102,8 @@ port (
 	Mre		:	in std_logic;
 	Mwe		:	in std_logic;
 	address	:	in std_logic_vector(10 downto 0);
-	data_in	:	in std_logic_vector(15 downto 0);
-	data_out:	out std_logic_vector(15 downto 0)
+	data_in	:	in std_logic_vector(63 downto 0);
+	data_out :	out std_logic_vector(63 downto 0)
 );
 end component;
 
@@ -197,17 +197,30 @@ port(
 );
 end component;
 component cache is
-port (
-	clock   	: 	in std_logic;
-	rst		: 	in std_logic;
-	Mre		:	in std_logic;
-	Mwe		:	in std_logic;
-	address	:	in std_logic_vector(10 downto 0);
-	data_in	:	in std_logic_vector(15 downto 0);
-	data_out :	out std_logic_vector(15 downto 0);
-	hit      :  out std_logic
+port (clock   	: 	in std_logic;
+		rst		: 	in std_logic;
+		Mre		:	in std_logic;
+		Mwe		:	in std_logic;
+		CPUe		:  in std_logic;
+		address	:	in std_logic_vector(10 downto 0);
+		word_in  :  in std_logic_vector(15 downto 0);
+		block_in	:	in std_logic_vector(63 downto 0);
+		word_out :	out std_logic_vector(15 downto 0);
+		block_out:  out std_logic_vector(63 downto 0);
+		hit      :  out std_logic
 );
 end component;
+
+component cachecontroller is
+port ( 	clock	: 	in std_logic;
+		rst		: 	in std_logic;
+		Mre		:	in std_logic;
+		Mwe		:	in std_logic;
+		address	:	in std_logic_vector(10 downto 0);
+		data_in	:	in std_logic_vector(15 downto 0);
+		data_out:	out std_logic_vector(15 downto 0)
+);
+end component; 
 end MP_lib;
 
 
