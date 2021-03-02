@@ -24,7 +24,7 @@ port(	clock:		in std_logic;
 	RFwe_ctrl:	out std_logic;
 	RFr1e_ctrl:	out std_logic;
 	RFr2e_ctrl:	out std_logic;						 
-	ALUs_ctrl:	out std_logic_vector(1 downto 0);	 
+	ALUs_ctrl:	out std_logic_vector(2 downto 0);	 
 	jmpen_ctrl:	out std_logic;
 	PCinc_ctrl:	out std_logic;
 	PCclr_ctrl:	out std_logic;
@@ -136,7 +136,7 @@ begin
 		  when S4 =>	RFr1a_ctrl <= IR_word(11 downto 8);	
 				RFr1e_ctrl <= '1'; -- mem[direct] <= RF[rn]			
 				Ms_ctrl <= "01";
-				ALUs_ctrl <= "00";	  
+				ALUs_ctrl <= "000";	  
 				IRld_ctrl <= '0';
 				state <= S4a;			-- read value from RF
 		  when S4a =>   Mre_ctrl <= '0';
@@ -155,7 +155,7 @@ begin
 		  when S5 =>	RFr1a_ctrl <= IR_word(11 downto 8);	
 				RFr1e_ctrl <= '1'; -- mem[RF[rn]] <= RF[rm]
 				Ms_ctrl <= "00";
-				ALUs_ctrl <= "01";
+				ALUs_ctrl <= "001";
 				RFr2a_ctrl <= IR_word(7 downto 4); 
 				RFr2e_ctrl <= '1'; -- set addr.& data
 				state <= S5a;
@@ -186,7 +186,7 @@ begin
 				RFr1e_ctrl <= '1'; -- RF[rn] <= RF[rn] + RF[rm]
 				RFr2e_ctrl <= '1'; 
 				RFr2a_ctrl <= IR_word(7 downto 4);
-				ALUs_ctrl <= "10";
+				ALUs_ctrl <= "010";
 				state <= S7a;
 		  when S7a =>   RFr1e_ctrl <= '0';
 				RFr2e_ctrl <= '0';
@@ -200,7 +200,7 @@ begin
 				RFr1e_ctrl <= '1'; -- RF[rn] <= RF[rn] - RF[rm]
 				RFr2a_ctrl <= IR_word(7 downto 4);
 				RFr2e_ctrl <= '1';  
-				ALUs_ctrl <= "11";
+				ALUs_ctrl <= "011";
 				state <= S8a;
 		  when S8a =>   RFr1e_ctrl <= '0';
 				RFr2e_ctrl <= '0';
@@ -212,7 +212,7 @@ begin
 		  when S9 =>	jmpen_ctrl <= '1';
 				RFr1a_ctrl <= IR_word(11 downto 8);	
 				RFr1e_ctrl <= '1'; -- jz if R[rn] = 0
-				ALUs_ctrl <= "00";
+				ALUs_ctrl <= "000";
 				state <= S9a;
 		  when S9a =>   state <= S9b;
 		  when S9b =>   jmpen_ctrl <= '0';

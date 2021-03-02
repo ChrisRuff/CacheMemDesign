@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SimpleCompArch
-Sun Feb 28 16:04:15 2021
+Mon Mar  1 19:03:32 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -52,7 +52,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb 28 16:04:14 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar  1 19:03:31 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SimpleCompArch                              ;
 ; Top-level Entity Name              ; SimpleCompArch                              ;
@@ -61,7 +61,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Total combinational functions  ; 24,654                                      ;
 ;     Dedicated logic registers      ; 33,138                                      ;
 ; Total registers                    ; 33138                                       ;
-; Total pins                         ; 100                                         ;
+; Total pins                         ; 101                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -169,7 +169,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.7%      ;
+;     Processor 2            ;   0.6%      ;
 ;     Processor 3            ;   0.5%      ;
 ;     Processor 4            ;   0.5%      ;
 +----------------------------+-------------+
@@ -218,13 +218,13 @@ https://fpgasoftware.intel.com/eula.
 ;     -- Dedicated logic registers            ; 33138         ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 100           ;
+; I/O pins                                    ; 101           ;
 ;                                             ;               ;
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; sys_clk~input ;
 ; Maximum fan-out                             ; 33138         ;
-; Total fan-out                               ; 228556        ;
+; Total fan-out                               ; 228557        ;
 ; Average fan-out                             ; 3.94          ;
 +---------------------------------------------+---------------+
 
@@ -234,7 +234,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name    ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------+--------------+
-; |SimpleCompArch            ; 24654 (1)           ; 33138 (0)                 ; 0           ; 0            ; 0       ; 0         ; 100  ; 0            ; |SimpleCompArch                                         ; SimpleCompArch ; work         ;
+; |SimpleCompArch            ; 24654 (1)           ; 33138 (0)                 ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |SimpleCompArch                                         ; SimpleCompArch ; work         ;
 ;    |CPU:Unit1|             ; 538 (0)             ; 354 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1                               ; CPU            ; work         ;
 ;       |ctrl_unit:Unit0|    ; 94 (0)              ; 66 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0               ; ctrl_unit      ; work         ;
 ;          |IR:U2|           ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|IR:U2         ; IR             ; work         ;
@@ -365,6 +365,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +------------------------------------------------------------+-------------------------------------------------------------------+
 ; Register name                                              ; Reason for Removal                                                ;
 +------------------------------------------------------------+-------------------------------------------------------------------+
+; CPU:Unit1|ctrl_unit:Unit0|controller:U0|ALUs_ctrl[2]       ; Stuck at GND due to stuck port data_in                            ;
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|delaystate.S10     ; Lost fanout                                                       ;
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|state.S10          ; Lost fanout                                                       ;
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|delaystate.S1      ; Merged with CPU:Unit1|ctrl_unit:Unit0|controller:U0|delaystate.S0 ;
@@ -400,7 +401,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|maccesdelay[1..30] ; Stuck at GND due to stuck port clock_enable                       ;
 ; CPU:Unit1|ctrl_unit:Unit0|controller:U0|maccesdelay[31]    ; Stuck at VCC due to stuck port clock_enable                       ;
 ; CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[11..15]             ; Lost fanout                                                       ;
-; Total Number of Removed Registers = 68                     ;                                                                   ;
+; Total Number of Removed Registers = 69                     ;                                                                   ;
 +------------------------------------------------------------+-------------------------------------------------------------------+
 
 
@@ -573,15 +574,15 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[15]    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[5]     ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|reg_file:U2|RFr1[0]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[10]    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|PC:U1|tmp_PC[0]     ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|reg_file:U2|RFr1[12] ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|reg_file:U2|RFr2[15] ;
-; 2048:1             ; 16 bits   ; 21840 LEs     ; 21840 LEs            ; 0 LEs                  ; Yes        ; |SimpleCompArch|memory:Unit2|data_out[12]                     ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|datamux:U1|Mux0      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|datamux:U1|Mux13     ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|alu:U3|Mux5          ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux7     ;
+; 2048:1             ; 16 bits   ; 21840 LEs     ; 21840 LEs            ; 0 LEs                  ; Yes        ; |SimpleCompArch|memory:Unit2|data_out[6]                      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|datamux:U1|Mux5      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|datamux:U1|Mux10     ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|datapath:Unit1|alu:U3|Mux14         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux5     ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux11    ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SimpleCompArch|CPU:Unit1|ctrl_unit:Unit0|addrmux:U3|Mux15    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
@@ -610,7 +611,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 100                         ;
+; boundary_port         ; 101                         ;
 ; cycloneiii_ff         ; 33138                       ;
 ;     CLR               ; 39                          ;
 ;     ENA               ; 16                          ;
@@ -648,11 +649,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Feb 28 16:02:30 2021
+    Info: Processing started: Mon Mar  1 19:01:45 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SimpleCompArch -c SimpleCompArch
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file SimpleCompArch.vhd
-    Info (12022): Found design unit 1: SimpleCompArch-rtl File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 36
+    Info (12022): Found design unit 1: SimpleCompArch-rtl File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 37
     Info (12023): Found entity 1: SimpleCompArch File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file reg_file.vhd
     Info (12022): Found design unit 1: reg_file-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/reg_file.vhd Line: 31
@@ -665,7 +666,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file obuf.vh
     Info (12023): Found entity 1: obuf File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/obuf.vhd Line: 14
 Info (12021): Found 2 design units, including 0 entities, in source file MP_lib.vhd
     Info (12022): Found design unit 1: MP_lib File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/MP_lib.vhd Line: 6
-    Info (12022): Found design unit 2: MP_lib-body File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/MP_lib.vhd Line: 204
+    Info (12022): Found design unit 2: MP_lib-body File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/MP_lib.vhd Line: 205
 Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
     Info (12022): Found design unit 1: memory-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/memory.vhd Line: 26
     Info (12023): Found entity 1: memory File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/memory.vhd Line: 15
@@ -679,7 +680,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file ctrl_un
     Info (12022): Found design unit 1: ctrl_unit-struct File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 39
     Info (12023): Found entity 1: ctrl_unit File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 16
 Info (12021): Found 2 design units, including 1 entities, in source file CPU.vhd
-    Info (12022): Found design unit 1: CPU-structure File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 36
+    Info (12022): Found design unit 1: CPU-structure File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 37
     Info (12023): Found entity 1: CPU File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 15
 Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
     Info (12022): Found design unit 1: controller-fsm File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 39
@@ -694,8 +695,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file datamux
     Info (12022): Found design unit 1: datamux-behv File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datamux.vhd Line: 22
     Info (12023): Found entity 1: datamux File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datamux.vhd Line: 13
 Info (12127): Elaborating entity "SimpleCompArch" for the top level hierarchy
-Info (12128): Elaborating entity "CPU" for hierarchy "CPU:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 48
-Info (12128): Elaborating entity "ctrl_unit" for hierarchy "CPU:Unit1|ctrl_unit:Unit0" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 53
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 49
+Info (12128): Elaborating entity "ctrl_unit" for hierarchy "CPU:Unit1|ctrl_unit:Unit0" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 54
 Info (12128): Elaborating entity "controller" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|controller:U0" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 52
 Warning (10631): VHDL Process Statement warning at controller.vhd(50): inferring latch(es) for signal or variable "usedelay", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 50
 Info (10041): Inferred latch for "usedelay" at controller.vhd(50) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 50
@@ -736,12 +737,61 @@ Info (10041): Inferred latch for "IRout[13]" at IR.vhd(24) File: /home/chris/Doc
 Info (10041): Inferred latch for "IRout[14]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
 Info (10041): Inferred latch for "IRout[15]" at IR.vhd(24) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
 Info (12128): Elaborating entity "addrmux" for hierarchy "CPU:Unit1|ctrl_unit:Unit0|addrmux:U3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd Line: 58
-Info (12128): Elaborating entity "datapath" for hierarchy "CPU:Unit1|datapath:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 55
+Info (12128): Elaborating entity "datapath" for hierarchy "CPU:Unit1|datapath:Unit1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd Line: 56
 Info (12128): Elaborating entity "datamux" for hierarchy "CPU:Unit1|datapath:Unit1|datamux:U1" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 44
 Info (12128): Elaborating entity "reg_file" for hierarchy "CPU:Unit1|datapath:Unit1|reg_file:U2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 46
 Info (12128): Elaborating entity "alu" for hierarchy "CPU:Unit1|datapath:Unit1|alu:U3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd Line: 50
-Info (12128): Elaborating entity "memory" for hierarchy "memory:Unit2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 52
-Info (12128): Elaborating entity "obuf" for hierarchy "obuf:Unit3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 53
+Warning (10631): VHDL Process Statement warning at alu.vhd(31): inferring latch(es) for signal or variable "alu_tmp", which holds its previous value in one or more paths through the process File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[0]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[1]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[2]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[3]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[4]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[5]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[6]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[7]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[8]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[9]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[10]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[11]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[12]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[13]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[14]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (10041): Inferred latch for "alu_tmp[15]" at alu.vhd(31) File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Info (12128): Elaborating entity "memory" for hierarchy "memory:Unit2" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 53
+Info (12128): Elaborating entity "obuf" for hierarchy "obuf:Unit3" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 54
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[4]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[3]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[2]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[1]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[0]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[6]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[5]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[7]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[8]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[9]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[10]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[11]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[12]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[13]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[14]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[15]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[4]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[3]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[2]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[1]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[0]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[6]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[5]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[7]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[8]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[9]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[10]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[11]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[12]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[13]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[14]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
+Warning (14026): LATCH primitive "CPU:Unit1|datapath:Unit1|alu:U3|alu_tmp[15]" is permanently enabled File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd Line: 31
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[0]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[0]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
     Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[1]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[1]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
@@ -753,18 +803,20 @@ Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|IRout[7]" merged with LATCH primitive "CPU:Unit1|ctrl_unit:Unit0|IR:U2|dir_addr[7]" File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd Line: 24
 Info (13000): Registers with preset signals will power-up high File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd Line: 54
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "D_ALUs[2]" is stuck at GND File: /home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd Line: 25
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 57624 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 57625 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 98 output pins
+    Info (21059): Implemented 99 output pins
     Info (21061): Implemented 57524 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 734 megabytes
-    Info: Processing ended: Sun Feb 28 16:04:15 2021
-    Info: Elapsed time: 00:01:45
-    Info: Total CPU time (on all processors): 00:01:57
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 691 megabytes
+    Info: Processing ended: Mon Mar  1 19:03:32 2021
+    Info: Elapsed time: 00:01:47
+    Info: Total CPU time (on all processors): 00:01:59
 
 

@@ -26,7 +26,8 @@ port( cpu_clk					: in std_logic;
 		D_rfout_bus: out std_logic_vector(15 downto 0);  
 		D_RFwa_s, D_RFr1a_s, D_RFr2a_s: out std_logic_vector(3 downto 0);
 		D_RFwe_s, D_RFr1e_s, D_RFr2e_s: out std_logic;
-		D_RFs_s, D_ALUs_s: out std_logic_vector(1 downto 0);
+		D_RFs_s : out std_logic_vector(1 downto 0);
+		D_ALUs_s : out std_logic_vector(2 downto 0);
 		D_PCld_s, D_jpz_s: out std_logic
 		-- end debug variables		
 		
@@ -44,7 +45,7 @@ signal RFwe_s					: std_logic;											-- Reg. File write enable 		(CTRLER 	->
 signal RFr1e_s					: std_logic;											-- Reg. File read enable p1	(CTRLER 	-> RF)
 signal RFr2e_s					: std_logic;											-- Reg. File read enable p2	(CTRLER 	-> RF)
 signal RFs_s					: std_logic_vector(1 downto 0);			-- Reg. File select 					(CTRLER 	-> SMUX)
-signal ALUs_s					: std_logic_vector(1 downto 0);		-- ALU select 							(CTRLER 	-> ALU)
+signal ALUs_s					: std_logic_vector(2 downto 0);		-- ALU select 							(CTRLER 	-> ALU)
 signal PCld_s					: std_logic;												-- Program Counter select		(CTRLER 	-> SMUX)
 signal jpz_s					: std_logic;												-- Jump check flag					(CTRLER 	-> ALU)
 

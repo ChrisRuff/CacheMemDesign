@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Sun Feb 28 16:04:14 2021
+Analysis & Synthesis Status : Successful - Mon Mar  1 19:03:31 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : SimpleCompArch
 Top-level Entity Name : SimpleCompArch
@@ -7,7 +7,7 @@ Total logic elements : 57,484
     Total combinational functions : 24,654
     Dedicated logic registers : 33,138
 Total registers : 33138
-Total pins : 100
+Total pins : 101
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
