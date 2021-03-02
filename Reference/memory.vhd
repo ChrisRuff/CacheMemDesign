@@ -31,55 +31,49 @@ begin
 	write: process(clock, rst, Mre, address, data_in)
 	begin				-- program to generate 10 gamma numbers
 		if rst='1' then		
-			tmp_ram <= (0 => x"3000",      -- R0 <- #0
-						1 => x"3101",         -- R1 <- #1
-						2 => x"3201",         -- R2 <- #1
-						3 => x"3308",         -- R3 <- #10
-						4 => x"3400",         -- R4 <- #0
-						5 => x"3501",         -- R5 <- #1 
-						6 => x"3634",         -- R6 <- #52
+				tmp_ram <= ( 
+																		0 => x"3000",         -- R0 <- #0 Holds 0
+									1 => x"3101",         -- R1 <- #1 Holds 1
+									2 => x"3204",         -- R2 <- #1 Counter starting at 50
+									3 => x"3303",         -- R3 <- #3 Holds seed
+									4 => x"3564",         -- R5 <- 100
+									5 => x"3704",         -- R7 <  Holds 4
+									6 => x"3808",         -- R8 < Holds 8
+									7 => x"1363",         -- M[99] <- R3
+									8 => x"A330",       -- R3 <- R3 * R3
+									9 => x"8370",        -- R3 <- R3 sll R7
+									10 => x"9380",        -- R3 <- R3 srl R8
+									11 => x"8370",        -- R3 <- R3 sll R7
+									12 => x"2530",        -- M[R5] <- R3
+									13 => x"4510",        -- R5 <- R5 add R1
+									14 => x"5210",        -- R2 <- R2 sub R1
+									15 => x"6211",        -- branch if R2==0 to 17
+									16 => x"6008",        -- always branch to 8
 
-						7 => x"1132",         -- M[50] <- R1
-						8 => x"1133",         -- M[51] <- R1
-						9 => x"103c",         -- M[60] <- R0
-
-							-- Loop 1
-							10 => x"043c",         -- R4 <- M[60]
-							11 => x"4410",         -- R4 <- R4 + R1
-							12 => x"143c",         -- M[60] <- R4
-	
-								-- Loop 2
-								13  => x"5410",        -- R4 <- R4 - R1 
-								14  => x"4250",        -- R2 <- R2 + R5 
-								15  => x"6411",        -- R4=0: PC <- 17
-								16  => x"600D",        -- R0=0: PC <- 13
-								-- Loop 2 End
-
-							17  => x"2620",        -- M[R6] <- R2
-							18  => x"5550",        -- R5 <- R5 - R5
-							19  => x"4520",        -- R5 <- R5 + R2
-							20  => x"4610",        -- R6 <- R6 + R1
-							21  => x"5310",        -- R3 <- R3 - R1
-
-							22  => x"6318",        -- R3=0: PC <- 24
-							23  => x"600A",        -- R0=0: PC <- 10
-							-- Loop 1 End
-
-						24  => x"7032",			-- output<- M[50]   mov obuf_out,M[50]
-						25  => x"7033",			-- output<- M[51]   mov obuf_out,M[51]
-						26  => x"7034",			-- output<- M[52]   mov obuf_out,M[52]
-						27  => x"7035",			-- output<- M[53]   mov obuf_out,M[53]
-						28  => x"7036",			-- output<- M[54]   mov obuf_out,M[54]
-						29  => x"7037",			-- output<- M[55]   mov obuf_out,M[55]
-						30  => x"7038",			-- output<- M[56]   mov obuf_out,M[56]
-						31  => x"7039",			-- output<- M[57]   mov obuf_out,M[57]
-						32  => x"703A",			-- output<- M[58]   mov obuf_out,M[58]
-						33  => x"703B",			-- output<- M[59]   mov obuf_out,M[59]
-						34  => x"F000",			-- halt
+									17  => x"7064",			-- output<- M[50]   mov obuf_out,M[50]
+									18  => x"7065",			-- output<- M[51]   mov obuf_out,M[51]
+									19  => x"7066",			-- output<- M[52]   mov obuf_out,M[52]
+									20  => x"7067",			-- output<- M[53]   mov obuf_out,M[53]
+									21  => x"7068",			-- output<- M[54]   mov obuf_out,M[54]
+									22  => x"7069",			-- output<- M[55]   mov obuf_out,M[55]
+									23  => x"706A",			-- output<- M[56]   mov obuf_out,M[56]
+									24  => x"706B",			-- output<- M[57]   mov obuf_out,M[57]
+									25  => x"706C",			-- output<- M[58]   mov obuf_out,M[58]
+									26  => x"706D",			-- output<- M[59]   mov obuf_out,M[59]
+									27  => x"706E",			-- output<- M[59]   mov obuf_out,M[59]
+									28  => x"706F",			-- output<- M[59]   mov obuf_out,M[59]
+									29  => x"7070",			-- output<- M[59]   mov obuf_out,M[59]
+									30  => x"7071",			-- output<- M[59]   mov obuf_out,M[59]
+									31  => x"7072",			-- output<- M[59]   mov obuf_out,M[59]
+									32  => x"7073",			-- output<- M[59]   mov obuf_out,M[59]
+									33  => x"7074",			-- output<- M[59]   mov obuf_out,M[59]
+									34  => x"7075",			-- output<- M[59]   mov obuf_out,M[59]
+									35  => x"F000",			-- halt
 
 
 
-						others => x"0000");
+
+									others => x"0000");
 		else
 			if (clock'event and clock = '1') then
 				if (Mwe ='1' and Mre = '0') then

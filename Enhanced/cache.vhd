@@ -31,6 +31,10 @@ architecture behv of cache	 is
 
 type tag_list is array(3 downto 0) of std_logic_vector(8 downto 0);
 
+type state_type is (Write, Read);
+signal cache_state: state_type;
+
+
 -- The cache memory
 type cache_type is array(3 downto 0, 3 downto 0) of std_logic_vector(15 downto 0);
 signal cache_mem : cache_type := (others => (others => "ZZZZZZZZZZZZZZZZ"));
@@ -136,21 +140,22 @@ begin
 			else
 				outWordBuf <= "ZZZZZZZZZZZZZZZZ";
 				hBuf <= '0';
-				
-				if(not(cache_mem(counter, to_integer(unsigned(word))) = "ZZZZZZZZZZZZZZZZ")) then
+				if(cache_state = Read) then
 					outBlockBuf(15 downto 0)  <= cache_mem(counter,0);
 					outBlockBuf(31 downto 16) <= cache_mem(counter,1);
 					outBlockBuf(47 downto 32) <= cache_mem(counter,2);
 					outBlockBuf(63 downto 48) <= cache_mem(counter,3);
+					cache_state <= Write;
+				elsif(cache_state = Write) then
+					tags(counter) <= tag;
+					cache_mem(counter, 0) <= block_in(15 downto 0);
+					cache_mem(counter, 1) <= block_in(31 downto 16);
+					cache_mem(counter, 2) <= block_in(47 downto 32);
+					cache_mem(counter, 3) <= block_in(63 downto 48);
+					counter <= (counter + 1) mod 4;
+					cache_state <= Read;
 				end if;
 				
-				
-				tags(counter) <= tag;
-				cache_mem(counter, 0) <= block_in(15 downto 0);
-				cache_mem(counter, 1) <= block_in(31 downto 16);
-				cache_mem(counter, 2) <= block_in(47 downto 32);
-				cache_mem(counter, 3) <= block_in(63 downto 48);
-				counter <= (counter + 1) mod 4;
 			end if;
 		end if;
 	end process;
@@ -161,16 +166,3 @@ end behv;
 
 
 
-	--		elsif(clock'event and clock = '1' and Mwe = '1') then
-	--			
-	--			
-	--			-- Write out to main mem if there is a value
-	--			if(not(cache_mem(counter, to_integer(unsigned(word))) = "ZZZZZZZZZZZZZZZZ")) then
-	--				outBuf <= cache_mem(counter, to_integer(unsigned(word)));
-	--			end if;
-	--			
-	--			-- Replace value in cache memory
-	--			cache_mem(counter, to_integer(unsigned(word))) <= data_in;
-	--			
-	--			-- Increment to keep track of next replacement tag
-	--			counter <= (counter + 1) mod 4;

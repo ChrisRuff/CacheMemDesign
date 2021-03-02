@@ -39,7 +39,8 @@ end;
 architecture fsm of controller is
 
   type state_type is (S0,Sdly,S1,S1a,S1b,S2,S3,S3a,S3b,S4,S4a,S4b,S5,S5a,S5b,
-			S6,S6a,S7,S7a,S7b,S8,S8a,S8b,S9,S9a,S9b,S10,S11,S11a);
+			S6,S6a,S7,S7a,S7b,S8,S8a,S8b,S9,S9a,S9b,S10,S11,S11a,S12,S12a,S12b, 
+			S13,S13a,S13b,S14,S14a,S14b);
   signal state: state_type;
   signal delaystate: state_type;
   constant memdelay: integer := 20;
@@ -113,6 +114,9 @@ begin
 					 when jz =>		state <= S9;
 					 when halt =>	state <= S10; 
 					 when readm => 	state <= S11;
+					 when shiftL  =>    state <= S12;
+					 when shiftR => state <= S13;
+					 when mult   => state <= S14;
 					 when others => 	state <= S1;
 					 end case;
 						
@@ -231,6 +235,45 @@ begin
 		  when S11a =>  oe_ctrl <= '1'; 
 				Mre_ctrl <= '0';
 				state <= S1;
+		  when S12 =>	RFr1a_ctrl <= IR_word(11 downto 8);	
+				RFr1e_ctrl <= '1'; -- RF[rn] <= RF[rn] << RF[rm]
+				RFr2e_ctrl <= '1'; 
+				RFr2a_ctrl <= IR_word(7 downto 4);
+				ALUs_ctrl <= "101";
+				state <= S12a;
+		  when S12a =>   RFr1e_ctrl <= '0';
+				RFr2e_ctrl <= '0';
+				RFs_ctrl <= "00";
+				RFwa_ctrl <= IR_word(11 downto 8);
+				RFwe_ctrl <= '1';
+				state <= S12b;
+		  when S12b =>   state <= S1;
+		  when S13 =>	RFr1a_ctrl <= IR_word(11 downto 8);	
+				RFr1e_ctrl <= '1'; -- RF[rn] <= RF[rn] >> RF[rm]
+				RFr2e_ctrl <= '1'; 
+				RFr2a_ctrl <= IR_word(7 downto 4);
+				ALUs_ctrl <= "110";
+				state <= S12a;
+		  when S13a =>   RFr1e_ctrl <= '0';
+				RFr2e_ctrl <= '0';
+				RFs_ctrl <= "00";
+				RFwa_ctrl <= IR_word(11 downto 8);
+				RFwe_ctrl <= '1';
+				state <= S13b;
+		  when S13b =>   state <= S1;
+		  when S14 =>	RFr1a_ctrl <= IR_word(11 downto 8);	
+				RFr1e_ctrl <= '1'; -- RF[rn] <= RF[rn] * RF[rm]
+				RFr2e_ctrl <= '1'; 
+				RFr2a_ctrl <= IR_word(7 downto 4);
+				ALUs_ctrl <= "100";
+				state <= S12a;
+		  when S14a =>   RFr1e_ctrl <= '0';
+				RFr2e_ctrl <= '0';
+				RFs_ctrl <= "00";
+				RFwa_ctrl <= IR_word(11 downto 8);
+				RFwe_ctrl <= '1';
+				state <= S14b;
+		  when S14b =>   state <= S1;
 		  when others =>
 		end case;
     end if;

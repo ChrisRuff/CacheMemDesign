@@ -18,6 +18,9 @@ constant add  : std_logic_vector(3 downto 0) := "0100";
 constant subt : std_logic_vector(3 downto 0) := "0101";
 constant jz  : std_logic_vector(3 downto 0) := "0110";
 constant readm  : std_logic_vector(3 downto 0) := "0111";
+constant shiftL : std_logic_vector(3 downto 0) := "1000";
+constant shiftR : std_logic_vector(3 downto 0) := "1001";
+constant mult   : std_logic_vector(3 downto 0) := "1010";
 constant halt  : std_logic_vector(3 downto 0) := "1111";
 
 component CPU is

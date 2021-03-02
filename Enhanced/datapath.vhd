@@ -27,7 +27,7 @@ port(
 	RFr1e_dp:	in 	std_logic;
 	RFr2e_dp:	in 	std_logic;
 	jp_en:		in 	std_logic;
-	ALUs_dp:	in 	std_logic_vector(1 downto 0);
+	ALUs_dp:	in 	std_logic_vector(2 downto 0);
 	ALUz_dp:	out 	std_logic;
 	RF1out_dp:	out 	std_logic_vector(15 downto 0);
 	ALUout_dp:	out 	std_logic_vector(15 downto 0)

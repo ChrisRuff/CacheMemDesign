@@ -24,14 +24,12 @@ port ( 	clock	: 	in std_logic;
 end;
 
 architecture behv of cachecontroller is			
-	type state_type is (w, rest, reset);
+	type state_type is (not_rest, rest);
 	signal cache_state: state_type;
 	
 	signal outBuf 							: std_logic_vector(15 downto 0);
 	signal mem2Cache, cache2Mem		: std_logic_vector(63 downto 0);
 	
-	signal mdout_bus 						: std_logic_vector(15 downto 0);
-	signal mdin_bus						: std_logic_vector(15 downto 0);
 	signal memRead, memWrite			: std_logic;
 	signal CPUe								: std_logic;
 	signal hit 								: std_logic;
@@ -40,28 +38,23 @@ begin
 	begin
 		if(clock'event and clock = '1') then
 			if(hit = '1') then
-				outBuf <= mdout_bus;
 				CPUe <= '1';
 			elsif(hit = '0' and cache_state = rest) then
-				cache_state <= w;
 				memWrite <= '1';
+				memRead <= '0';
 				outBuf <= "ZZZZZZZZZZZZZZZZ";
-			elsif(cache_state = w) then
+				cache_state <= not_rest;
+			else
 				memWrite <= '0';
 				memRead <= '1';
 				CPUe <= '0';
-				cache_state <= reset;
-				outBuf <= "ZZZZZZZZZZZZZZZZ";
-			elsif(cache_state = reset) then
-				memWrite <= '0';
-				memRead <= '0';
 				cache_state <= rest;
 				outBuf <= "ZZZZZZZZZZZZZZZZ";
 			end if;
 		end if;
 	end process;
 	
-	Unit2: cache port map(clock,rst,Mre, Mwe, CPUe, address, data_in, mem2Cache, outBuf, cache2Mem, hit);
+	Unit2: cache port map(clock, rst, Mre, Mwe, CPUe, address, data_in, mem2Cache, outBuf, cache2Mem, hit);
 
 	Unit3: memory port map(clock,rst, memRead, memWrite, address, cache2Mem, mem2Cache);
 	

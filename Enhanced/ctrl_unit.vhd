@@ -29,7 +29,7 @@ port(	clock_cu:	in 	std_logic;
 	RFr1e_cu:	out	std_logic;
 	RFr2e_cu:	out	std_logic;
 	jpen_cu:	out std_logic;
-	ALUs_cu:	out	std_logic_vector(1 downto 0);	
+	ALUs_cu:	out	std_logic_vector(2 downto 0);	
 	Mre_cu:		out std_logic;
 	Mwe_cu:		out std_logic;
 	oe_cu:		out std_logic
