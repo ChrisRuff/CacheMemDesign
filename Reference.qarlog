@@ -1,0 +1,29 @@
+Quartus Prime Archive log --	/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference.qarlog
+
+Archive:	/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference.qar
+Date:		Wed Mar  3 14:50:38 2021
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/CPU.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/IR.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/MP_lib.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/PC.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimSimpleCompArch.vwf
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.qpf
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.qsf
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/SimpleCompArch_assignment_defaults.qdf
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/addrmux.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/alu.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/controller.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/ctrl_unit.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datamux.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/datapath.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/memory.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/obuf.vhd
+/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Reference/reg_file.vhd
+	======= Total: 18 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
