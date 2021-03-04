@@ -43,7 +43,6 @@ architecture rtl of SimpleCompArch is
 	signal mem_addr					: std_logic_vector(10 downto 0);   -- Const. operand addr.(CTRLER	-> MEM)
 	signal Mre							: std_logic;							 -- Mem. read enable  	(CTRLER	-> Mem) 
 	signal Mwe							: std_logic;							 -- Mem. write enable 	(CTRLER	-> Mem)
-	signal hit							: std_logic; 
 	
 	signal data_ready					: std_logic;
 	--System local variables
@@ -54,7 +53,7 @@ begin
 	
 	
 	
-	Unit1: CPU port map (sys_clk,sys_rst,mdout_bus,mdin_bus,mem_addr,Mre,Mwe,oe,
+	Unit1: CPU port map (sys_clk,sys_rst,mdout_bus,data_ready, mdin_bus,mem_addr,Mre,Mwe,oe,
 											D_rfout_bus,D_RFwa, D_RFr1a, D_RFr2a,D_RFwe, 			 				--Degug signals
 											D_RFr1e, D_RFr2e,D_RFs, D_ALUs,D_PCld, D_jpz);	 						--Degug signals
 																						

@@ -25,24 +25,26 @@ constant halt  : std_logic_vector(3 downto 0) := "1111";
 
 
 component CPU is
-port (	
-		cpu_clk					: in std_logic;
+port( cpu_clk					: in std_logic;
 		cpu_rst					: in std_logic;
 		mdout_bus				: in std_logic_vector(15 downto 0); 
+		data_ready				: in std_logic;
 		mdin_bus					: out std_logic_vector(15 downto 0); 
 		mem_addr					: out std_logic_vector(10 downto 0);
 		Mre_s						: out std_logic;
 		Mwe_s						: out std_logic;	
 		oe_s						: out std_logic;
-		-- Debug variables: output to upper level for simulation purpose only
+		
+		-- Debug signals: output to upper level for simulation purpose only
 		D_rfout_bus: out std_logic_vector(15 downto 0);  
 		D_RFwa_s, D_RFr1a_s, D_RFr2a_s: out std_logic_vector(3 downto 0);
 		D_RFwe_s, D_RFr1e_s, D_RFr2e_s: out std_logic;
-		D_RFs_s: out std_logic_vector(1 downto 0);
+		D_RFs_s: out std_logic_vector(1 downto 0); 
 		D_ALUs_s: out std_logic_vector(2 downto 0);
 		D_PCld_s, D_jpz_s: out std_logic
-		-- end debug variables				
-);
+		-- end debug variables		
+		
+		);
 end component;
 
 component alu is
@@ -68,10 +70,10 @@ port(
 end component;
 
 component controller is
-port(	
-	clock:		in std_logic;
+port(	clock:		in std_logic;
 	rst:		in std_logic;
 	IR_word:	in std_logic_vector(15 downto 0);
+	data_ready : in std_logic;
 	RFs_ctrl:	out std_logic_vector(1 downto 0);
 	RFwa_ctrl:	out std_logic_vector(3 downto 0);
 	RFr1a_ctrl:	out std_logic_vector(3 downto 0);
@@ -159,14 +161,14 @@ port(
 end component;
 
 component ctrl_unit is
-port(
-	clock_cu:	in 	std_logic;
+port(	clock_cu:	in 	std_logic;
 	rst_cu:		in 	std_logic;
 	PCld_cu:	in 	std_logic;
 	mdata_out: 	in 	std_logic_vector(15 downto 0);
 	dpdata_out:	in 	std_logic_vector(15 downto 0);
-	maddr_in:	out 	std_logic_vector(15 downto 0);		  
-	immdata:	out 	std_logic_vector(15 downto 0);
+	data_ready : in std_logic;
+	maddr_in:	out std_logic_vector(15 downto 0);		  
+	immdata:	out std_logic_vector(15 downto 0);
 	RFs_cu:		out	std_logic_vector(1 downto 0);
 	RFwa_cu:	out	std_logic_vector(3 downto 0);
 	RFr1a_cu:	out	std_logic_vector(3 downto 0);
@@ -174,11 +176,11 @@ port(
 	RFwe_cu:	out	std_logic;
 	RFr1e_cu:	out	std_logic;
 	RFr2e_cu:	out	std_logic;
-	jpen_cu:	out 	std_logic;
+	jpen_cu:	out std_logic;
 	ALUs_cu:	out	std_logic_vector(2 downto 0);	
-	Mre_cu:		out 	std_logic;
-	Mwe_cu:		out 	std_logic;
-	oe_cu:		out 	std_logic
+	Mre_cu:		out std_logic;
+	Mwe_cu:		out std_logic;
+	oe_cu:		out std_logic
 );
 end component;
 

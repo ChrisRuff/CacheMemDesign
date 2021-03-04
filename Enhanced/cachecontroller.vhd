@@ -24,9 +24,7 @@ port ( 	clock	: 	in std_logic;
 );
 end;
 
-architecture behv of cachecontroller is			
-	type state_type is (not_rest, rest);
-	signal cache_state: state_type;
+architecture behv of cachecontroller is		
 	
 	signal outBuf 							: std_logic_vector(15 downto 0);
 	signal mem2Cache, cache2Mem		: std_logic_vector(63 downto 0);
@@ -51,6 +49,7 @@ begin
 				CPUe <= '0';
 			end if;
 		end if;
+
 	end process;
 	
 	Unit2: cache port map(clock, rst, Mre, Mwe, CPUe, address, data_in, mem2Cache, outBuf, cache2Mem, outAddress, hit);

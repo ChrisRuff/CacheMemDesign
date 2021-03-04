@@ -17,6 +17,7 @@ entity controller is
 port(	clock:		in std_logic;
 	rst:		in std_logic;
 	IR_word:	in std_logic_vector(15 downto 0);
+	data_ready : in std_logic;
 	RFs_ctrl:	out std_logic_vector(1 downto 0);
 	RFwa_ctrl:	out std_logic_vector(3 downto 0);
 	RFr1a_ctrl:	out std_logic_vector(3 downto 0);
@@ -72,7 +73,7 @@ begin
 
 		  when Sdly =>								-- Delay State	
 				maccesdelay:=maccesdelay-1;
-				if maccesdelay=0 then state <= delaystate;
+				if( data_ready = '1') then state <= delaystate;
 					else state <= Sdly;
 				end if;
 				

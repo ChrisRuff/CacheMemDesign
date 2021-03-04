@@ -31,8 +31,9 @@ end;
 architecture behv of cache	 is			
 
 type tag_list is array(3 downto 0) of std_logic_vector(8 downto 0);
+
 type state_type is (Write, Read);
-signal cache_state: state_type;
+signal cache_state: state_type := Read;
 
 
 -- The cache memory
@@ -40,7 +41,9 @@ type cache_type is array(3 downto 0, 3 downto 0) of std_logic_vector(15 downto 0
 signal cache_mem : cache_type := (others => (others => "ZZZZZZZZZZZZZZZZ"));
 
 -- Idenifiers of tags in the array
-signal tags : tag_list;
+signal tags : tag_list := (others => "ZZZZZZZZZ");
+
+
 
 signal counter : integer := 0;
 
@@ -143,34 +146,19 @@ begin
 				end if;
 				hBuf <= '1';
 			else
-				outWordBuf <= "ZZZZZZZZZZZZZZZZ";
 				hBuf <= '0';
-				if(flag = '0') then
-					flag <= '1';
-					writeBuffer(15 downto 0) <= cache_mem(counter, 0);
-					writeBuffer(31 downto 16) <= cache_mem(counter, 1);
-					writeBuffer(47 downto 32) <= cache_mem(counter, 2);
-					writeBuffer(63 downto 48) <= cache_mem(counter, 3);
-					
-				end if;
-				outBlockBuf(15 downto 0)  <= writeBuffer(15 downto 0);
-				outBlockBuf(31 downto 16) <= writeBuffer(31 downto 16);
-				outBlockBuf(47 downto 32) <= writeBuffer(47 downto 32);
-				outBlockBuf(63 downto 48) <= writeBuffer(63 downto 48);
-				outAddress(10 downto 2) <= tags(counter);
-				
+				outBlockBuf(15 downto 0)  <= cache_mem(counter,0);
+				outBlockBuf(31 downto 16) <= cache_mem(counter,1);
+				outBlockBuf(47 downto 32) <= cache_mem(counter,2);
+				outBlockBuf(63 downto 48) <= cache_mem(counter,3);
+				tags(counter) <= tag;
 				cache_mem(counter, 0) <= block_in(15 downto 0);
 				cache_mem(counter, 1) <= block_in(31 downto 16);
 				cache_mem(counter, 2) <= block_in(47 downto 32);
 				cache_mem(counter, 3) <= block_in(63 downto 48);
-				
-				writeCounter <= writeCounter + 1;
-				if(writeCounter = 19) then
-					writeCounter <= "00000";
-					tags(counter) <= tag;
-					counter <= (counter + 1) mod 4;
-					flag <= '0';
-				end if;
+				counter <= (counter + 1) mod 4;
+				outWordBuf <= cache_mem(counter, to_integer(unsigned(word)));
+				hBuf <= '1';
 			end if;
 		end if;
 	end process;
