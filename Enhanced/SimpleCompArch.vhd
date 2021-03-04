@@ -44,6 +44,8 @@ architecture rtl of SimpleCompArch is
 	signal Mre							: std_logic;							 -- Mem. read enable  	(CTRLER	-> Mem) 
 	signal Mwe							: std_logic;							 -- Mem. write enable 	(CTRLER	-> Mem)
 	signal hit							: std_logic; 
+	
+	signal data_ready					: std_logic;
 	--System local variables
 	signal oe							: std_logic;
 
@@ -56,7 +58,7 @@ begin
 											D_rfout_bus,D_RFwa, D_RFr1a, D_RFr2a,D_RFwe, 			 				--Degug signals
 											D_RFr1e, D_RFr2e,D_RFs, D_ALUs,D_PCld, D_jpz);	 						--Degug signals
 																						
-	Unit2: cachecontroller port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus);
+	Unit2: cachecontroller port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus, data_ready);
 	Unit3: obuf port map(oe, mdout_bus, sys_output);
 
 -- Debug signals: output to upper level for simulation purpose only

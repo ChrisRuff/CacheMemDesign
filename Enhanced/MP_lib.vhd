@@ -102,11 +102,12 @@ end component;
 
 component memory is
 port ( 	
-	clock	: 	in std_logic;
+	clock_in	: 	in std_logic;
 	rst		: 	in std_logic;
 	Mre		:	in std_logic;
 	Mwe		:	in std_logic;
 	address	:	in std_logic_vector(10 downto 0);
+	WBAddress: 	in std_logic_vector(10 downto 0);
 	data_in	:	in std_logic_vector(63 downto 0);
 	data_out :	out std_logic_vector(63 downto 0)
 );
@@ -212,6 +213,7 @@ port (clock   	: 	in std_logic;
 		block_in	:	in std_logic_vector(63 downto 0);
 		word_out :	out std_logic_vector(15 downto 0);
 		block_out:  out std_logic_vector(63 downto 0);
+		outAddress: out std_logic_vector(10 downto 0);
 		hit      :  out std_logic
 );
 end component;
@@ -223,7 +225,8 @@ port ( 	clock	: 	in std_logic;
 		Mwe		:	in std_logic;
 		address	:	in std_logic_vector(10 downto 0);
 		data_in	:	in std_logic_vector(15 downto 0);
-		data_out:	out std_logic_vector(15 downto 0)
+		data_out:	out std_logic_vector(15 downto 0);
+		data_ready: out std_logic
 );
 end component; 
 end MP_lib;

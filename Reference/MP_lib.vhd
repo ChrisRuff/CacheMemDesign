@@ -101,7 +101,7 @@ end component;
 
 component memory is
 port ( 	
-	clock	: 	in std_logic;
+	clock_in	: 	in std_logic;
 	rst		: 	in std_logic;
 	Mre		:	in std_logic;
 	Mwe		:	in std_logic;

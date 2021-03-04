@@ -1,8 +1,8 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimSimpleCompArch.vwf" --testbench_file="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/simulation/qsim/SimSimpleCompArch.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/SimSimpleCompArch.vwf" --testbench_file="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/simulation/qsim/SimSimpleCompArch.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/simulation/qsim/" SimpleCompArch -c SimpleCompArch</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/AS1/SimpleCompArch/simulation/qsim/" SimpleCompArch -c SimpleCompArch</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Enhanced/SimSimpleCompArch.vwf" --testbench_file="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Enhanced/simulation/qsim/SimSimpleCompArch.vwf.vht"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Enhanced/SimSimpleCompArch.vwf" --testbench_file="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Enhanced/simulation/qsim/SimSimpleCompArch.vwf.vht"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Enhanced/simulation/qsim/" SimpleCompArch -c SimpleCompArch</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Enhanced/simulation/qsim/" SimpleCompArch -c SimpleCompArch</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
 vcom -work work SimpleCompArch.vho
@@ -20,15 +20,6 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
-
-
-
-
-
-
-
-
 
 
 </modelsim_script>
@@ -49,15 +40,6 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
-
-
-
-
-
-
-
-
 
 
 </modelsim_script_timing>
@@ -91,7 +73,7 @@ HEADER
 	VERSION = 1;
 	TIME_UNIT = ns;
 	DATA_OFFSET = 0.0;
-	DATA_DURATION = 30000.0;
+	DATA_DURATION = 753.0;
 	SIMULATION_TIME = 0.0;
 	GRID_PHASE = 0.0;
 	GRID_PERIOD = 10.0;
@@ -295,10 +277,11 @@ TRANSITION_LIST("sys_clk")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 3000;
+			REPEAT = 75;
 			LEVEL 0 FOR 5.0;
 			LEVEL 1 FOR 5.0;
 		}
+		LEVEL 0 FOR 3.0;
 	}
 }
 
@@ -308,7 +291,7 @@ TRANSITION_LIST("sys_rst")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 29960.0;
+		LEVEL 0 FOR 713.0;
 	}
 }
 
@@ -317,7 +300,7 @@ TRANSITION_LIST("sys_output[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -326,7 +309,7 @@ TRANSITION_LIST("sys_output[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -335,7 +318,7 @@ TRANSITION_LIST("sys_output[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -344,7 +327,7 @@ TRANSITION_LIST("sys_output[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -353,7 +336,7 @@ TRANSITION_LIST("sys_output[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -362,7 +345,7 @@ TRANSITION_LIST("sys_output[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -371,7 +354,7 @@ TRANSITION_LIST("sys_output[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -380,7 +363,7 @@ TRANSITION_LIST("sys_output[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -389,7 +372,7 @@ TRANSITION_LIST("sys_output[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -398,7 +381,7 @@ TRANSITION_LIST("sys_output[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -407,7 +390,7 @@ TRANSITION_LIST("sys_output[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -416,7 +399,7 @@ TRANSITION_LIST("sys_output[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -425,7 +408,7 @@ TRANSITION_LIST("sys_output[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -434,7 +417,7 @@ TRANSITION_LIST("sys_output[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -443,7 +426,7 @@ TRANSITION_LIST("sys_output[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -452,7 +435,7 @@ TRANSITION_LIST("sys_output[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 30000.0;
+		LEVEL X FOR 753.0;
 	}
 }
 
@@ -477,7 +460,7 @@ DISPLAY_LINE
 DISPLAY_LINE
 {
 	CHANNEL = "sys_output";
-	EXPAND_STATUS = EXPANDED;
+	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 2;
 	TREE_LEVEL = 0;

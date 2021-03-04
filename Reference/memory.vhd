@@ -13,7 +13,7 @@ use ieee.std_logic_unsigned.all;
 use work.MP_lib.all;
 
 entity memory is
-port ( 	clock	: 	in std_logic;
+port (clock_in	: 	in std_logic;
 		rst		: 	in std_logic;
 		Mre		:	in std_logic;
 		Mwe		:	in std_logic;
@@ -27,12 +27,24 @@ architecture behv of memory	 is
 
 type ram_type is array (0 to 2047) of std_logic_vector(15 downto 0);
 signal tmp_ram: ram_type;
+signal clock : std_logic := '0';
+signal counter : unsigned(5 downto 0) := "000000";
 begin
-	write: process(clock, rst, Mre, address, data_in)
+	delay: process(clock_in)
+	begin
+		if(clock_in'event and clock_in = '1') then
+			counter <= counter + 1;
+			if(counter = 19) then
+				counter <= "000000";
+				clock <= not(clock);
+			end if;
+		end if;
+	end process;
+	write: process(rst, Mre, address, data_in)
 	begin				-- program to generate 10 gamma numbers
 		if rst='1' then		
 				tmp_ram <= ( 
-																		0 => x"3000",         -- R0 <- #0 Holds 0
+									0 => x"3000",         -- R0 <- #0 Holds 0
 									1 => x"3101",         -- R1 <- #1 Holds 1
 									2 => x"3204",         -- R2 <- #1 Counter starting at 50
 									3 => x"3303",         -- R3 <- #3 Holds seed
@@ -83,7 +95,7 @@ begin
 		end if;
 	end process;
 
-    read: process(clock, rst, Mwe, address)
+    read: process(rst, Mwe, address)
 	begin
 		if rst='1' then
 			data_out <= ZERO;

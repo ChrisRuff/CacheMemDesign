@@ -23,6 +23,7 @@ port (clock   	: 	in std_logic;
 		block_in	:	in std_logic_vector(63 downto 0);
 		word_out :	out std_logic_vector(15 downto 0);
 		block_out:  out std_logic_vector(63 downto 0);
+		outAddress: out std_logic_vector(10 downto 0);
 		hit      :  out std_logic
 );
 end;
@@ -30,7 +31,6 @@ end;
 architecture behv of cache	 is			
 
 type tag_list is array(3 downto 0) of std_logic_vector(8 downto 0);
-
 type state_type is (Write, Read);
 signal cache_state: state_type;
 
@@ -49,12 +49,17 @@ signal tag : std_logic_vector(10 downto 2);
 signal word : std_logic_vector(1 downto 0);
 
 signal hBuf : std_logic;
+signal writeCounter : unsigned(4 downto 0) := "00000";
+signal writeBuffer : std_logic_vector(63 downto 0);
+signal flag 		 : std_logic;
 signal outWordBuf : std_logic_vector(15 downto 0);
 signal outBlockBuf: std_logic_vector(63 downto 0);
 begin
 
 	tag <= address(10 downto 2);
 	word <= address(1 downto 0);
+	
+	
 	cache: process(clock, Mwe, Mre, address, word_in, block_in)
 	begin
 		if(clock'event and clock = '1') then
@@ -140,22 +145,32 @@ begin
 			else
 				outWordBuf <= "ZZZZZZZZZZZZZZZZ";
 				hBuf <= '0';
-				if(cache_state = Read) then
-					outBlockBuf(15 downto 0)  <= cache_mem(counter,0);
-					outBlockBuf(31 downto 16) <= cache_mem(counter,1);
-					outBlockBuf(47 downto 32) <= cache_mem(counter,2);
-					outBlockBuf(63 downto 48) <= cache_mem(counter,3);
-					cache_state <= Write;
-				elsif(cache_state = Write) then
-					tags(counter) <= tag;
-					cache_mem(counter, 0) <= block_in(15 downto 0);
-					cache_mem(counter, 1) <= block_in(31 downto 16);
-					cache_mem(counter, 2) <= block_in(47 downto 32);
-					cache_mem(counter, 3) <= block_in(63 downto 48);
-					counter <= (counter + 1) mod 4;
-					cache_state <= Read;
+				if(flag = '0') then
+					flag <= '1';
+					writeBuffer(15 downto 0) <= cache_mem(counter, 0);
+					writeBuffer(31 downto 16) <= cache_mem(counter, 1);
+					writeBuffer(47 downto 32) <= cache_mem(counter, 2);
+					writeBuffer(63 downto 48) <= cache_mem(counter, 3);
+					
 				end if;
+				outBlockBuf(15 downto 0)  <= writeBuffer(15 downto 0);
+				outBlockBuf(31 downto 16) <= writeBuffer(31 downto 16);
+				outBlockBuf(47 downto 32) <= writeBuffer(47 downto 32);
+				outBlockBuf(63 downto 48) <= writeBuffer(63 downto 48);
+				outAddress(10 downto 2) <= tags(counter);
 				
+				cache_mem(counter, 0) <= block_in(15 downto 0);
+				cache_mem(counter, 1) <= block_in(31 downto 16);
+				cache_mem(counter, 2) <= block_in(47 downto 32);
+				cache_mem(counter, 3) <= block_in(63 downto 48);
+				
+				writeCounter <= writeCounter + 1;
+				if(writeCounter = 19) then
+					writeCounter <= "00000";
+					tags(counter) <= tag;
+					counter <= (counter + 1) mod 4;
+					flag <= '0';
+				end if;
 			end if;
 		end if;
 	end process;
