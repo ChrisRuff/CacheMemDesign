@@ -48,14 +48,15 @@ signal miss: std_logic := '0';
 signal tag: std_logic_vector(8 downto 0);
 signal memRead : std_logic := '0';
 signal memWrite : std_logic := '0';
+signal memReady : std_logic := '0';
 
 begin		
 
   --cache ports
-  U1: cache port map(clock_cc, rst_cc, Mre_cc, Mwe_cc, address_cc, data_in_cc, mem2cache, cache2mem, data_out_cache,
+  U1: cache port map(clock_cc, rst_cc, Mre_cc, Mwe_cc, address_cc, data_in_cc, mem2cache, memReady, cache2mem, data_out_cache,
 							miss, tag, memRead, memWrite, data_ready, D_memBusy, D_line0, D_line1, D_line2, D_line3);
   -- memory ports
-  U2: memory port map(clock_cc, rst_cc, memRead, memWrite, cache2mem, miss, tag, mem2cache);
+  U2: memory port map(clock_cc, rst_cc, memRead, memWrite, cache2mem, miss, tag, memReady, mem2cache);
 			 
   data_out_cc <= data_out_cache;
    

@@ -73,7 +73,7 @@ begin
 
 		  when Sdly =>								-- Delay State	
 				maccesdelay:=maccesdelay-1;
-				if maccesdelay=0 then state <= delaystate;
+				if data_ready='1' then state <= delaystate;
 					else state <= Sdly;
 				end if;
 				

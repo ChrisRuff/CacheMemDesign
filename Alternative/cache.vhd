@@ -14,12 +14,14 @@ entity cache is
 		IncomingADDR						: in std_logic_vector(10 downto 0);
 		IncomingDATA						: in std_logic_vector(15 downto 0);
 		IncomingMemDATA					: in std_logic_vector(63 downto 0);
+		memReady								: in std_logic;
 		OutgoingMemDATA					: out std_logic_vector(63 downto 0);
 		OutgoingDATA						: out std_logic_vector(15 downto 0);
 		miss									: out std_logic;
 		out_tag								: out std_logic_vector(8 downto 0);
 		memRead								: out std_logic;
 		memWrite								: out std_logic;
+		data_ready							: out std_logic;
 		
 		--DEBUG SIGNALS
 		D_memBusy							: out std_logic;
@@ -110,7 +112,11 @@ begin
 						memRead <= '0';
 						data_ready <= '1';
 					elsif (memBusy = '1') then
-						memBusy <= '0';
+						if (memReady = '1') then
+							memBusy <= '0';
+						else
+							memBusy <= '1';
+						end if;
 					end if;
 				elsif (Mread ='1' and Mwrite ='0') then
 					data_ready <= '0';
@@ -173,7 +179,11 @@ begin
 						memBusy <= '1';
 						ADD_TAG <= IncomingADDR(10 downto 2);
 					elsif (memBusy='1') then
-						memBusy <= '0';
+						if (memReady = '1') then
+							memBusy <= '0';
+						else
+							memBusy <= '1';
+						end if;
 					end if;
 				elsif (Mread ='0' and MWrite ='0') then
 					miss_t <= '0';

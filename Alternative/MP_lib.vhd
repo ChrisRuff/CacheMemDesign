@@ -24,8 +24,7 @@ constant mult   : std_logic_vector(3 downto 0) := "1010";
 constant halt  : std_logic_vector(3 downto 0) := "1111";
 
 component CPU is
-port (	
-		cpu_clk					: in std_logic;
+port( cpu_clk					: in std_logic;
 		cpu_rst					: in std_logic;
 		mdout_bus				: in std_logic_vector(15 downto 0); 
 		mdin_bus					: out std_logic_vector(15 downto 0); 
@@ -33,15 +32,18 @@ port (
 		Mre_s						: out std_logic;
 		Mwe_s						: out std_logic;	
 		oe_s						: out std_logic;
-		-- Debug variables: output to upper level for simulation purpose only
+		data_ready				: in std_logic;
+		
+		-- Debug signals: output to upper level for simulation purpose only
 		D_rfout_bus: out std_logic_vector(15 downto 0);  
 		D_RFwa_s, D_RFr1a_s, D_RFr2a_s: out std_logic_vector(3 downto 0);
 		D_RFwe_s, D_RFr1e_s, D_RFr2e_s: out std_logic;
-		D_RFs_s : out std_logic_vector(1 downto 0); 
+		D_RFs_s : out std_logic_vector(1 downto 0);
 		D_ALUs_s : out std_logic_vector(2 downto 0);
 		D_PCld_s, D_jpz_s: out std_logic
-		-- end debug variables				
-);
+		-- end debug variables		
+		
+		);
 end component;
 
 component alu is
@@ -67,8 +69,7 @@ port(
 end component;
 
 component controller is
-port(	
-	clock:		in std_logic;
+port(	clock:		in std_logic;
 	rst:		in std_logic;
 	IR_word:	in std_logic_vector(15 downto 0);
 	RFs_ctrl:	out std_logic_vector(1 downto 0);
@@ -86,7 +87,8 @@ port(
 	Ms_ctrl:	out std_logic_vector(1 downto 0);
 	Mre_ctrl:	out std_logic;
 	Mwe_ctrl:	out std_logic;
-	oe_ctrl:	out std_logic
+	oe_ctrl:	out std_logic;
+	data_ready: in std_logic
 );
 end component;
 
@@ -107,8 +109,8 @@ port ( 	clock	: 	in std_logic;
 		data_in	:	in std_logic_vector(63 downto 0);
 		miss		:	in std_logic;
 		tag		:	in std_logic_vector(8 downto 0);
+		memReady :  out std_logic;
 		data_out :	out std_logic_vector(63 downto 0)
-		
 );
 end component;
 
@@ -158,14 +160,13 @@ port(
 end component;
 
 component ctrl_unit is
-port(
-	clock_cu:	in 	std_logic;
+port(	clock_cu:	in 	std_logic;
 	rst_cu:		in 	std_logic;
 	PCld_cu:	in 	std_logic;
 	mdata_out: 	in 	std_logic_vector(15 downto 0);
 	dpdata_out:	in 	std_logic_vector(15 downto 0);
-	maddr_in:	out 	std_logic_vector(15 downto 0);		  
-	immdata:	out 	std_logic_vector(15 downto 0);
+	maddr_in:	out std_logic_vector(15 downto 0);		  
+	immdata:	out std_logic_vector(15 downto 0);
 	RFs_cu:		out	std_logic_vector(1 downto 0);
 	RFwa_cu:	out	std_logic_vector(3 downto 0);
 	RFr1a_cu:	out	std_logic_vector(3 downto 0);
@@ -173,11 +174,12 @@ port(
 	RFwe_cu:	out	std_logic;
 	RFr1e_cu:	out	std_logic;
 	RFr2e_cu:	out	std_logic;
-	jpen_cu:	out 	std_logic;
+	jpen_cu:	out std_logic;
 	ALUs_cu:	out	std_logic_vector(2 downto 0);	
-	Mre_cu:		out 	std_logic;
-	Mwe_cu:		out 	std_logic;
-	oe_cu:		out 	std_logic
+	Mre_cu:		out std_logic;
+	Mwe_cu:		out std_logic;
+	oe_cu:		out std_logic;
+	data_ready: in std_logic
 );
 end component;
 
@@ -210,6 +212,7 @@ port(
 		address_cc							:	in std_logic_vector(10 downto 0);
 		data_in_cc							:	in std_logic_vector(15 downto 0);
 		data_out_cc							:	out std_logic_vector(15 downto 0);
+		data_ready							:  out std_logic;
 		
 		-- DEBUG SIGNALS
 		D_data_out_cache					: out std_logic_vector(15 downto 0);
@@ -233,12 +236,14 @@ component cache is
 		IncomingADDR						: in std_logic_vector(10 downto 0);
 		IncomingDATA						: in std_logic_vector(15 downto 0);
 		IncomingMemDATA					: in std_logic_vector(63 downto 0);
+		memReady								: in std_logic;
 		OutgoingMemDATA					: out std_logic_vector(63 downto 0);
 		OutgoingDATA						: out std_logic_vector(15 downto 0);
 		miss									: out std_logic;
 		out_tag								: out std_logic_vector(8 downto 0);
 		memRead								: out std_logic;
 		memWrite								: out std_logic;
+		data_ready							: out std_logic;
 		
 		--DEBUG SIGNALS
 		D_memBusy							: out std_logic;

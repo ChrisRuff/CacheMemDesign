@@ -63,7 +63,7 @@ Unit1: CPU port map (sys_clk,sys_rst,mdout_bus,mdin_bus,mem_addr,Mre,Mwe,oe, dat
 										D_RFr1e, D_RFr2e,D_RFs, D_ALUs,D_PCld, D_jpz);	 						--Degug signals
 																					
 --Unit2: cache_controller port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus);
-Unit2: cache_controller port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus,D_data_out_cache, data_ready,
+Unit2: cache_controller port map(sys_clk,sys_rst,Mre,Mwe,mem_addr,mdin_bus,mdout_bus,data_ready, D_data_out_cache,
 										D_cache2mem, D_mem2cache,D_miss,D_tag,D_memRead,D_memWrite, D_memBusy,
 										D_line0, D_line1, D_line2, D_line3);
 Unit3: obuf port map(oe, mdout_bus, sys_output);
