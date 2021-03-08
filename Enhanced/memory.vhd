@@ -32,16 +32,6 @@ signal tmp_ram: ram_type;
 signal clock : std_logic := '0';
 signal counter : unsigned(5 downto 0) := "000000";
 begin
---	delay: process(clock_in)
---	begin
---		if(clock_in'event and clock_in = '1') then
---			counter <= counter + 1;
---			if(counter = 19) then
---				counter <= "000000";
---				clock <= not(clock);
---			end if;
---		end if;
---	end process;
 	clock <= clock_in;
 	write: process(rst, Mre, WBAddress, data_in)
 	begin				
