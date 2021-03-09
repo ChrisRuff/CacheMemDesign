@@ -72,6 +72,7 @@ begin
 								when "10" => tmp_cache(0)(47 downto 32) <= IncomingDATA;  -- change W3
 								when "11" => tmp_cache(0)(63 downto 48) <= IncomingDATA;   -- change W4
 							end case;
+							data_ready <= '1';
 						elsif ADD_TAG=tmp_cache(1)(72 downto 64) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(1)(15 downto 0) <= IncomingDATA; -- change W1
@@ -79,6 +80,7 @@ begin
 								when "10" => tmp_cache(1)(47 downto 32) <= IncomingDATA;  -- change W3
 								when "11" => tmp_cache(1)(63 downto 48) <= IncomingDATA;   -- change W4
 							end case;
+							data_ready <= '1';
 						elsif ADD_TAG=tmp_cache(2)(72 downto 64) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(2)(15 downto 0) <= IncomingDATA; -- change W1
@@ -86,6 +88,7 @@ begin
 								when "10" => tmp_cache(2)(47 downto 32) <= IncomingDATA;  -- change W3
 								when "11" => tmp_cache(2)(63 downto 48) <= IncomingDATA;   -- change W4
 							end case;
+							data_ready <= '1';
 						elsif ADD_TAG=tmp_cache(3)(72 downto 64) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(3)(15 downto 0) <= IncomingDATA; -- change W1
@@ -93,6 +96,7 @@ begin
 								when "10" => tmp_cache(3)(47 downto 32) <= IncomingDATA;  -- change W3
 								when "11" => tmp_cache(3)(63 downto 48) <= IncomingDATA;   -- change W4
 							end case;
+							data_ready <= '1';
 						else
 							-- pull block into cache
 							-- have flag saying we need to still write to it
@@ -130,6 +134,7 @@ begin
 								when "10" => OutgoingDATA <= tmp_cache(0)(47 downto 32); -- output W3
 								when "11" => OutgoingDATA <= tmp_cache(0)(63 downto 48);	-- output W4
 							end case;
+							data_ready <= '1';
 						elsif ADD_TAG=tmp_cache(1)(72 downto 64) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(1)(15 downto 0); -- output W1
@@ -137,6 +142,7 @@ begin
 								when "10" => OutgoingDATA <= tmp_cache(1)(47 downto 32); -- output W3
 								when "11" => OutgoingDATA <= tmp_cache(1)(63 downto 48);	-- output W4
 							end case;
+							data_ready <= '1';
 						elsif ADD_TAG=tmp_cache(2)(72 downto 64) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(2)(15 downto 0); -- output W1
@@ -144,6 +150,7 @@ begin
 								when "10" => OutgoingDATA <= tmp_cache(2)(47 downto 32); -- output W3
 								when "11" => OutgoingDATA <= tmp_cache(2)(63 downto 48);	-- output W4
 							end case;
+							data_ready <= '1';
 						elsif ADD_TAG=tmp_cache(3)(72 downto 64) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(3)(15 downto 0); -- output W1
@@ -151,6 +158,7 @@ begin
 								when "10" => OutgoingDATA <= tmp_cache(3)(47 downto 32); -- output W3
 								when "11" => OutgoingDATA <= tmp_cache(3)(63 downto 48);	-- output W4
 							end case;
+							data_ready <= '1';
 						else
 							-- REPLACE OLDEST CACHE LINE WITH MEMORY BLOCK REFERENCED IN ADDRESS
 							miss_t <= '1';

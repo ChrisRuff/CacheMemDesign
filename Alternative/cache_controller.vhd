@@ -35,7 +35,8 @@ port(
 		D_line0								: out std_logic_vector(72 downto 0);
 		D_line1								: out std_logic_vector(72 downto 0);
 		D_line2								: out std_logic_vector(72 downto 0);
-		D_line3								: out std_logic_vector(72 downto 0)
+		D_line3								: out std_logic_vector(72 downto 0);
+		D_memReady							: out std_logic
 		-- DEBUG SIGNALS
 );
 end;
@@ -67,4 +68,5 @@ begin
   D_tag <= tag;
   D_memRead <= memRead;
   D_memWrite <= memWrite;
+  D_memReady <= memReady;
 end struct;
