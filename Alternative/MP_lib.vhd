@@ -110,7 +110,8 @@ port ( 	clock	: 	in std_logic;
 		miss		:	in std_logic;
 		tag		:	in std_logic_vector(8 downto 0);
 		memReady :  out std_logic;
-		data_out :	out std_logic_vector(63 downto 0)
+		data_out :	out std_logic_vector(63 downto 0);
+		memDelay :  out std_logic
 );
 end component;
 
@@ -226,7 +227,8 @@ port(
 		D_line1								: out std_logic_vector(72 downto 0);
 		D_line2								: out std_logic_vector(72 downto 0);
 		D_line3								: out std_logic_vector(72 downto 0);
-		D_memReady							: out std_logic
+		D_memReady							: out std_logic;
+		D_memDelay							: out std_logic
 		-- DEBUG SIGNALS
 );
 end component;

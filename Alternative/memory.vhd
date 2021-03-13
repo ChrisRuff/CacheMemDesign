@@ -21,7 +21,8 @@ port ( 	clock	: 	in std_logic;
 		miss		:	in std_logic;
 		tag		:	in std_logic_vector(8 downto 0);
 		memReady :  out std_logic;
-		data_out :	out std_logic_vector(63 downto 0)
+		data_out :	out std_logic_vector(63 downto 0);
+		memDelay :  out std_logic
 );
 end;
 
@@ -29,8 +30,9 @@ architecture behv of memory	 is
 
 type ram_type is array (0 to 2047) of std_logic_vector(15 downto 0);
 signal tmp_ram: ram_type;
-signal counter: integer := 19;
+signal counter: integer;
 signal memReady_t : std_logic;
+signal memDelay_t : std_logic;
 begin
 	write: process(clock, rst, Mre, data_in, miss, tag)
 	begin				-- program to generate 10 gamma numbers
@@ -58,36 +60,34 @@ begin
 		else
 			if (clock'event and clock = '1') then
 				memReady_t <= '1';
-				if (Mwe ='1' and Mre = '0' and miss ='1') then
-					memReady_t <= '0';
-					if (counter>0) then
-						counter <= counter -1;
-					else
-						tmp_ram(conv_integer(tag & "00")) <= data_in(15 downto 0);
-						tmp_ram(conv_integer(tag & "01")) <= data_in(31 downto 16);
-						tmp_ram(conv_integer(tag & "10")) <= data_in(47 downto 32);
-						tmp_ram(conv_integer(tag & "11")) <= data_in(63 downto 48);
-						counter <= 19;
-						memReady_t <= '1';
-					end if;
-				elsif (Mre ='1' and Mwe ='0' and miss ='1') then	
-					memReady_t <= '0';
-					if (counter >0) then
-						counter  <= counter  -1;
-					else
-						data_out(15 downto 0) <= tmp_ram(conv_integer(tag & "00"));
-						data_out(31 downto 16) <= tmp_ram(conv_integer(tag & "01"));
-						data_out(47 downto 32) <= tmp_ram(conv_integer(tag & "10"));
-						data_out(63 downto 48) <= tmp_ram(conv_integer(tag & "11"));
-						counter  <= 19;
-						memReady_t <= '1';
-					end if;
-				else
+				if (Mwe ='1' and Mre = '0' and miss ='1' and memDelay_t ='0') then
 					counter <= 19;
+					memReady_t <= '0';
+					tmp_ram(conv_integer(tag & "00")) <= data_in(15 downto 0);
+					tmp_ram(conv_integer(tag & "01")) <= data_in(31 downto 16);
+					tmp_ram(conv_integer(tag & "10")) <= data_in(47 downto 32);
+					tmp_ram(conv_integer(tag & "11")) <= data_in(63 downto 48);
+					memDelay_t <= '1';
+				elsif (Mre ='1' and Mwe ='0' and miss ='1' and memDelay_t ='0') then
+					counter <= 19;
+					memReady_t <= '0';
+					data_out(15 downto 0) <= tmp_ram(conv_integer(tag & "00"));
+					data_out(31 downto 16) <= tmp_ram(conv_integer(tag & "01"));
+					data_out(47 downto 32) <= tmp_ram(conv_integer(tag & "10"));
+					data_out(63 downto 48) <= tmp_ram(conv_integer(tag & "11"));
+					memDelay_t <= '1';
+				elsif (miss ='1' and memDelay_t ='1' and counter > 0) then
+					counter <= counter - 1;
+				elsif (miss ='1' and counter = 0) then
+					memDelay_t <= '0';
+					memReady_t <= '1';
+				else
+					memReady_t <= '0';
 				end if;
 			end if;
 		end if;
 	end process;
 	
+	memDelay <= memDelay_t;
 	memReady <= memReady_t;
 end behv;

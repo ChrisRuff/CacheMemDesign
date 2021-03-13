@@ -36,7 +36,8 @@ port(
 		D_line1								: out std_logic_vector(72 downto 0);
 		D_line2								: out std_logic_vector(72 downto 0);
 		D_line3								: out std_logic_vector(72 downto 0);
-		D_memReady							: out std_logic
+		D_memReady							: out std_logic;
+		D_memDelay							: out std_logic
 		-- DEBUG SIGNALS
 );
 end;
@@ -50,6 +51,7 @@ signal tag: std_logic_vector(8 downto 0);
 signal memRead : std_logic := '0';
 signal memWrite : std_logic := '0';
 signal memReady : std_logic := '0';
+signal memDelay : std_logic;
 
 begin		
 
@@ -57,7 +59,7 @@ begin
   U1: cache port map(clock_cc, rst_cc, Mre_cc, Mwe_cc, address_cc, data_in_cc, mem2cache, memReady, cache2mem, data_out_cache,
 							miss, tag, memRead, memWrite, data_ready, D_memBusy, D_line0, D_line1, D_line2, D_line3);
   -- memory ports
-  U2: memory port map(clock_cc, rst_cc, memRead, memWrite, cache2mem, miss, tag, memReady, mem2cache);
+  U2: memory port map(clock_cc, rst_cc, memRead, memWrite, cache2mem, miss, tag, memReady, mem2cache, memDelay);
 			 
   data_out_cc <= data_out_cache;
    
@@ -69,4 +71,5 @@ begin
   D_memRead <= memRead;
   D_memWrite <= memWrite;
   D_memReady <= memReady;
+  D_memDelay <= memDelay;
 end struct;
