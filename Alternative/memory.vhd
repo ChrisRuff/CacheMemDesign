@@ -57,8 +57,9 @@ begin
 				data_out <= "0000000000000000000000000000000000000000000000000000000000000000";
 		else
 			if (clock'event and clock = '1') then
-				memReady_t <= '0';
+				memReady_t <= '1';
 				if (Mwe ='1' and Mre = '0' and miss ='1') then
+					memReady_t <= '0';
 					if (counter>0) then
 						counter <= counter -1;
 					else
@@ -70,6 +71,7 @@ begin
 						memReady_t <= '1';
 					end if;
 				elsif (Mre ='1' and Mwe ='0' and miss ='1') then	
+					memReady_t <= '0';
 					if (counter >0) then
 						counter  <= counter  -1;
 					else

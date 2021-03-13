@@ -1,13 +1,13 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/burt/projects/ECE4242/CacheMemDesign/Alternative/SimSimpleCompArch.vwf" --testbench_file="/home/burt/projects/ECE4242/CacheMemDesign/Alternative/simulation/qsim/SimSimpleCompArch.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/burt/projects/ECE4242/CacheMemDesign/Alternative/SimSimpleCompArch.vwf" --testbench_file="/home/burt/projects/ECE4242/CacheMemDesign/Alternative/simulation/qsim/SimSimpleCompArch.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/burt/projects/ECE4242/CacheMemDesign/Alternative/simulation/qsim/" SimpleCompArch -c SimpleCompArch</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="/home/burt/projects/ECE4242/CacheMemDesign/Alternative/simulation/qsim/" SimpleCompArch -c SimpleCompArch</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Alternative/SimSimpleCompArch.vwf" --testbench_file="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Alternative/simulation/qsim/SimSimpleCompArch.vwf.vht"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SimpleCompArch -c SimpleCompArch --vector_source="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Alternative/SimSimpleCompArch.vwf" --testbench_file="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Alternative/simulation/qsim/SimSimpleCompArch.vwf.vht"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Alternative/simulation/qsim/" SimpleCompArch -c SimpleCompArch</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="/home/chris/Documents/Git_Repos/School/Winter2021/ECE4242/CacheMemDesign/Alternative/simulation/qsim/" SimpleCompArch -c SimpleCompArch</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
 vcom -work work SimpleCompArch.vho
 vcom -work work SimSimpleCompArch.vwf.vht
-vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SimpleCompArch_vhd_vec_tst
+vsim -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SimpleCompArch_vhd_vec_tst
 vcd file -direction SimpleCompArch.msim.vcd
 vcd add -internal SimpleCompArch_vhd_vec_tst/*
 vcd add -internal SimpleCompArch_vhd_vec_tst/i1/*
@@ -20,7 +20,6 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
@@ -39,7 +38,6 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
 </modelsim_script_timing>
 <hdl_lang>vhdl</hdl_lang>
 </simulation_settings>*/
@@ -5308,11 +5306,6 @@ SIGNAL("D_line3[0]")
 	PARENT = "D_line3";
 }
 
-GROUP("D_tag")
-{
-	MEMBERS = "D_tag[8]", "D_tag[7]", "D_tag[6]", "D_tag[5]", "D_tag[4]", "D_tag[3]", "D_tag[2]", "D_tag[1]", "D_tag[0]";
-}
-
 SIGNAL("D_data_ready")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -5331,6 +5324,11 @@ SIGNAL("D_memReady")
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
 	PARENT = "";
+}
+
+GROUP("D_tag")
+{
+	MEMBERS = "D_tag[8]", "D_tag[7]", "D_tag[6]", "D_tag[5]", "D_tag[4]", "D_tag[3]", "D_tag[2]", "D_tag[1]", "D_tag[0]";
 }
 
 TRANSITION_LIST("sys_clk")
