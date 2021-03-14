@@ -33,6 +33,7 @@ signal tmp_ram: ram_type;
 signal counter: integer;
 signal memReady_t : std_logic;
 signal memDelay_t : std_logic;
+signal blah : std_logic;
 begin
 	write: process(clock, rst, Mre, data_in, miss, tag)
 	begin				-- program to generate 10 gamma numbers
@@ -59,8 +60,8 @@ begin
 				data_out <= "0000000000000000000000000000000000000000000000000000000000000000";
 		else
 			if (clock'event and clock = '1') then
-				memReady_t <= '1';
-				if (Mwe ='1' and Mre = '0' and miss ='1' and memDelay_t ='0') then
+				if (Mwe ='1' and Mre = '0' and miss ='1' and memDelay_t ='0' and memReady_t = '0' and blah = '0') then
+					blah <= '1';
 					counter <= 19;
 					memReady_t <= '0';
 					tmp_ram(conv_integer(tag & "00")) <= data_in(15 downto 0);
@@ -68,7 +69,8 @@ begin
 					tmp_ram(conv_integer(tag & "10")) <= data_in(47 downto 32);
 					tmp_ram(conv_integer(tag & "11")) <= data_in(63 downto 48);
 					memDelay_t <= '1';
-				elsif (Mre ='1' and Mwe ='0' and miss ='1' and memDelay_t ='0') then
+				elsif (Mre ='1' and Mwe ='0' and miss ='1' and memDelay_t ='0' and memReady_t = '0' and blah = '1') then
+					blah <= '0';
 					counter <= 19;
 					memReady_t <= '0';
 					data_out(15 downto 0) <= tmp_ram(conv_integer(tag & "00"));
@@ -81,8 +83,10 @@ begin
 				elsif (miss ='1' and counter = 0) then
 					memDelay_t <= '0';
 					memReady_t <= '1';
+					counter <= 19;
 				else
 					memReady_t <= '0';
+					memDelay_t <= '0';
 				end if;
 			end if;
 		end if;

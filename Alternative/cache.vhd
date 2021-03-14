@@ -44,7 +44,7 @@ signal counter : integer := 1;
 signal memBusy : std_logic := '0';
 signal memWrite_t : std_logic := '0';
 begin
-	process(clk, rst, Mread, Mwrite, IncomingADDR, IncomingDATA, IncomingMemDATA)
+	process(clk, rst, Mread, Mwrite, IncomingADDR, IncomingDATA, IncomingMemDATA, memReady)
 	begin
 		if rst='1' then	-- random cache values preloaded
 			tmp_cache <= (0 => "0" & x"C9C956789012345678",	   -- TAG: 9bit, DATA: 3A BF C3 34
@@ -56,7 +56,6 @@ begin
 			ADD_TAG <= "000000000";
 			memBusy <= '0';
 			counter <= 1;
-			memBusy <= '0';
 			memWrite_t <= '0';
 		else
 			if (clk'event and clk = '1') then 
@@ -65,7 +64,7 @@ begin
 					if (miss_t ='0' and memBusy ='0') then	-- write incoming data to cache
 						ADD_TAG <= IncomingADDR(10 downto 2);
 						ADD_WORD <= IncomingADDR(1 downto 0);
-						if ADD_TAG=tmp_cache(0)(72 downto 64) then -- compare tags
+						if (ADD_TAG=tmp_cache(0)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(0)(15 downto 0) <= IncomingDATA; -- change W1
 								when "01" => tmp_cache(0)(31 downto 16) <= IncomingDATA; -- change W2
@@ -73,7 +72,7 @@ begin
 								when "11" => tmp_cache(0)(63 downto 48) <= IncomingDATA;   -- change W4
 							end case;
 							data_ready <= '1';
-						elsif ADD_TAG=tmp_cache(1)(72 downto 64) then -- compare tags
+						elsif (ADD_TAG=tmp_cache(1)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(1)(15 downto 0) <= IncomingDATA; -- change W1
 								when "01" => tmp_cache(1)(31 downto 16) <= IncomingDATA; -- change W2
@@ -81,7 +80,7 @@ begin
 								when "11" => tmp_cache(1)(63 downto 48) <= IncomingDATA;   -- change W4
 							end case;
 							data_ready <= '1';
-						elsif ADD_TAG=tmp_cache(2)(72 downto 64) then -- compare tags
+						elsif (ADD_TAG=tmp_cache(2)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(2)(15 downto 0) <= IncomingDATA; -- change W1
 								when "01" => tmp_cache(2)(31 downto 16) <= IncomingDATA; -- change W2
@@ -89,7 +88,7 @@ begin
 								when "11" => tmp_cache(2)(63 downto 48) <= IncomingDATA;   -- change W4
 							end case;
 							data_ready <= '1';
-						elsif ADD_TAG=tmp_cache(3)(72 downto 64) then -- compare tags
+						elsif (ADD_TAG=tmp_cache(3)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(3)(15 downto 0) <= IncomingDATA; -- change W1
 								when "01" => tmp_cache(3)(31 downto 16) <= IncomingDATA; -- change W2
@@ -127,7 +126,7 @@ begin
 					if (miss_t ='0' and memBusy ='0') then	-- output outgoing data from cache						 
 						ADD_TAG <= IncomingADDR(10 downto 2);
 						ADD_WORD <= IncomingADDR(1 downto 0);
-						if ADD_TAG=tmp_cache(0)(72 downto 64) then -- compare tags
+						if (ADD_TAG=tmp_cache(0)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(0)(15 downto 0); -- output W1
 								when "01" => OutgoingDATA <= tmp_cache(0)(31 downto 16); -- output W2
@@ -135,7 +134,7 @@ begin
 								when "11" => OutgoingDATA <= tmp_cache(0)(63 downto 48);	-- output W4
 							end case;
 							data_ready <= '1';
-						elsif ADD_TAG=tmp_cache(1)(72 downto 64) then -- compare tags
+						elsif (ADD_TAG=tmp_cache(1)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(1)(15 downto 0); -- output W1
 								when "01" => OutgoingDATA <= tmp_cache(1)(31 downto 16); -- output W2
@@ -143,7 +142,7 @@ begin
 								when "11" => OutgoingDATA <= tmp_cache(1)(63 downto 48);	-- output W4
 							end case;
 							data_ready <= '1';
-						elsif ADD_TAG=tmp_cache(2)(72 downto 64) then -- compare tags
+						elsif (ADD_TAG=tmp_cache(2)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(2)(15 downto 0); -- output W1
 								when "01" => OutgoingDATA <= tmp_cache(2)(31 downto 16); -- output W2
@@ -151,7 +150,7 @@ begin
 								when "11" => OutgoingDATA <= tmp_cache(2)(63 downto 48);	-- output W4
 							end case;
 							data_ready <= '1';
-						elsif ADD_TAG=tmp_cache(3)(72 downto 64) then -- compare tags
+						elsif (ADD_TAG=tmp_cache(3)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(3)(15 downto 0); -- output W1
 								when "01" => OutgoingDATA <= tmp_cache(3)(31 downto 16); -- output W2
@@ -196,6 +195,7 @@ begin
 				elsif (Mread ='0' and MWrite ='0') then
 					miss_t <= '0';
 					memBusy <= '0';
+					data_ready <= '0';
 				end if;
 			end if;
 		end if;

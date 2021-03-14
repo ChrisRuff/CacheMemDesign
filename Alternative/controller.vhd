@@ -44,14 +44,12 @@ architecture fsm of controller is
 			S13,S13a,S13b,S14,S14a,S14b);
   signal state: state_type;
   signal delaystate: state_type;
-  constant memdelay: integer := 5;
   signal usedelay: boolean := true;
   signal counter : unsigned(4 downto 0);
   
 begin
   process(clock, rst, IR_word)
     variable OPCODE: std_logic_vector(3 downto 0);
-	 variable maccesdelay: integer;
 	 begin
     if rst='1' then			   
 		Ms_ctrl <= "10";
@@ -72,7 +70,6 @@ begin
 				state <= S1;	
 
 		  when Sdly =>								-- Delay State	
-				maccesdelay:=maccesdelay-1;
 				if data_ready='1' then state <= delaystate;
 					else state <= Sdly;
 				end if;
@@ -90,7 +87,6 @@ begin
 				state <= S1a;
 				if usedelay = false then state <= S1a;
 				else 
-					maccesdelay:=memdelay;
 					delaystate<= S1a;
 					state <= Sdly;
 				end if;
@@ -128,7 +124,6 @@ begin
 				Mwe_ctrl <= '0';		  
 				if usedelay = false then state <= S3a;
 				else 
-					maccesdelay:=memdelay;
 					delaystate<= S3a;
 					state <= Sdly;
 				end if;
@@ -148,7 +143,6 @@ begin
 				Mwe_ctrl <= '1';		-- write into memory				
 				if usedelay = false then state <= S4b;
 				else 
-					maccesdelay:=memdelay;
 					delaystate<= S4b;
 					state <= Sdly;
 				end if;			
@@ -168,7 +162,6 @@ begin
 				Mwe_ctrl <= '1'; -- write into memory
 				if usedelay = false then state <= S5b;
 				else 
-					maccesdelay:=memdelay;
 					delaystate<= S5b;
 					state <= Sdly;
 				end if;			
@@ -229,7 +222,6 @@ begin
 				Mwe_ctrl <= '0';		  
 				if usedelay = false then state <= S11a;
 				else 
-					maccesdelay:=memdelay;
 					delaystate<= S11a;
 					state <= Sdly;
 				end if;			
