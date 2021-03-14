@@ -17,7 +17,7 @@ port ( 	clock	: 	in std_logic;
 		rst		: 	in std_logic;
 		Mre		:	in std_logic;
 		Mwe		:	in std_logic;
-		data_in	:	in std_logic_vector(63 downto 0);
+		data_in	:	in std_logic_vector(72 downto 0);
 		miss		:	in std_logic;
 		tag		:	in std_logic_vector(8 downto 0);
 		memReady :  out std_logic;
@@ -62,16 +62,16 @@ begin
 			if (clock'event and clock = '1') then
 				if (Mwe ='1' and Mre = '0' and miss ='1' and memDelay_t ='0' and memReady_t = '0' and blah = '0') then
 					blah <= '1';
-					counter <= 19;
+					counter <= 7;
 					memReady_t <= '0';
-					tmp_ram(conv_integer(tag & "00")) <= data_in(15 downto 0);
-					tmp_ram(conv_integer(tag & "01")) <= data_in(31 downto 16);
-					tmp_ram(conv_integer(tag & "10")) <= data_in(47 downto 32);
-					tmp_ram(conv_integer(tag & "11")) <= data_in(63 downto 48);
+					tmp_ram(conv_integer(data_in(72 downto 64) & "00")) <= data_in(15 downto 0);
+					tmp_ram(conv_integer(data_in(72 downto 64) & "01")) <= data_in(31 downto 16);
+					tmp_ram(conv_integer(data_in(72 downto 64) & "10")) <= data_in(47 downto 32);
+					tmp_ram(conv_integer(data_in(72 downto 64) & "11")) <= data_in(63 downto 48);
 					memDelay_t <= '1';
 				elsif (Mre ='1' and Mwe ='0' and miss ='1' and memDelay_t ='0' and memReady_t = '0' and blah = '1') then
 					blah <= '0';
-					counter <= 19;
+					counter <= 7;
 					memReady_t <= '0';
 					data_out(15 downto 0) <= tmp_ram(conv_integer(tag & "00"));
 					data_out(31 downto 16) <= tmp_ram(conv_integer(tag & "01"));
@@ -83,7 +83,7 @@ begin
 				elsif (miss ='1' and counter = 0) then
 					memDelay_t <= '0';
 					memReady_t <= '1';
-					counter <= 19;
+					counter <= 7;
 				else
 					memReady_t <= '0';
 					memDelay_t <= '0';

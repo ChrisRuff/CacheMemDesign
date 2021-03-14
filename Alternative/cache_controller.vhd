@@ -26,7 +26,8 @@ port(
 		
 		-- DEBUG SIGNALS
 		D_data_out_cache					: out std_logic_vector(15 downto 0);
-		D_cache2mem, D_mem2cache		: out std_logic_vector(63 downto 0);
+		D_cache2mem							: out std_logic_vector(72 downto 0);
+		D_mem2cache							: out std_logic_vector(63 downto 0);
 		D_miss								: out std_logic;
 		D_tag									: out std_logic_vector(8 downto 0);
 		D_memRead 							: out std_logic;
@@ -45,7 +46,8 @@ end;
 architecture struct of cache_controller is
 
 signal data_out_cache: std_logic_vector(15 downto 0);
-signal cache2mem, mem2cache: std_logic_vector(63 downto 0);
+signal cache2mem : std_logic_vector(72 downto 0);
+signal mem2cache : std_logic_vector(63 downto 0);
 signal miss: std_logic := '0';
 signal tag: std_logic_vector(8 downto 0);
 signal memRead : std_logic := '0';

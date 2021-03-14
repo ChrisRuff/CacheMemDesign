@@ -15,7 +15,7 @@ entity cache is
 		IncomingDATA						: in std_logic_vector(15 downto 0);
 		IncomingMemDATA					: in std_logic_vector(63 downto 0);
 		memReady								: in std_logic;
-		OutgoingMemDATA					: out std_logic_vector(63 downto 0);
+		OutgoingMemDATA					: out std_logic_vector(72 downto 0);
 		OutgoingDATA						: out std_logic_vector(15 downto 0);
 		miss									: out std_logic;
 		out_tag								: out std_logic_vector(8 downto 0);
@@ -43,24 +43,25 @@ signal miss_t : std_logic;
 signal counter : integer := 1;
 signal memBusy : std_logic := '0';
 signal memWrite_t : std_logic := '0';
+signal memRead_t : std_logic := '0';
 begin
+
+	ADD_TAG <= IncomingADDR(10 downto 2);
+	ADD_WORD <= IncomingADDR(1 downto 0);
 	process(clk, rst, Mread, Mwrite, IncomingADDR, IncomingDATA, IncomingMemDATA, memReady)
 	begin
 		if rst='1' then	-- random cache values preloaded
-			tmp_cache <= (0 => "0" & x"00A1111222233334444",	   
+			tmp_cache <= (0 => "0" & x"0A1111222233334444",	   
 							  1 => "0" & x"CACA56789012345678",		
 							  2 => "0" & x"CBCB56789012345678",		
 							  3 => "0" & x"CCCC56789012345678"		
 							  );
 			miss_t <= '0';
-			ADD_TAG <= "000000000";
 			memBusy <= '0';
 			counter <= 1;
 			memWrite_t <= '0';
 		else
 			if (clk'event and clk = '1') then
-				ADD_TAG <= IncomingADDR(10 downto 2);
-				ADD_WORD <= IncomingADDR(1 downto 0);
 				if (Mread ='0' and Mwrite ='1') then
 					data_ready <= '0';
 					if (miss_t ='0' and memBusy ='0') then	-- write incoming data to cache
@@ -101,10 +102,15 @@ begin
 							-- have flag saying we need to still write to it
 							-- write to cache
 							miss_t <= '1';
-							memRead <= '1';
+							memWrite_t <= '1';
 							memBusy <= '1';
+							OutgoingMemData(72 downto 64) <= tmp_cache(counter mod 4)(72 downto 64); -- tag
+							OutgoingMemData(15 downto 0) <= tmp_cache(counter mod 4)(15 downto 0);
+							OutgoingMemData(31 downto 16) <= tmp_cache(counter mod 4)(31 downto 16);
+							OutgoingMemData(47 downto 32) <= tmp_cache(counter mod 4)(47 downto 32);
+							OutgoingMemData(63 downto 48) <= tmp_cache(counter mod 4)(63 downto 48);
 						end if;
-					elsif (miss_t = '1'and memBusy ='0') then
+					elsif (miss_t = '1'and memBusy ='0' and memWrite_t = '0') then
 						tmp_cache(counter mod 4)(15 downto 0) <= IncomingMemDATA(15 downto 0); -- change W1
 						tmp_cache(counter mod 4)(31 downto 16) <= IncomingMemDATA(31 downto 16); -- change W2
 						tmp_cache(counter mod 4)(47 downto 32) <= IncomingMemDATA(47 downto 32); -- change W3
@@ -112,8 +118,13 @@ begin
 						tmp_cache(counter mod 4)(72 downto 64) <= ADD_TAG; -- change tag
 						counter <= counter + 1;
 						miss_t <= '0';
-						memRead <= '0';
-					elsif (memBusy = '1') then
+						memRead_t <= '0';
+					elsif (miss_t ='1' and memBusy ='0' and memWrite_t ='1') then
+						-- We just wrote oldest cache line to memory, now we need to pull block into cache
+						memWrite_t <= '0';
+						memRead_t <= '1';
+						memBusy <= '1';
+					elsif (memBusy='1') then
 						if (memReady = '1') then
 							memBusy <= '0';
 						else
@@ -160,7 +171,7 @@ begin
 							miss_t <= '1';
 							memWrite_t <= '1';
 							memBusy <= '1';
-							ADD_TAG <= tmp_cache(counter mod 4)(72 downto 64);
+							OutgoingMemData(72 downto 64) <= tmp_cache(counter mod 4)(72 downto 64); -- tag
 							OutgoingMemData(15 downto 0) <= tmp_cache(counter mod 4)(15 downto 0);
 							OutgoingMemData(31 downto 16) <= tmp_cache(counter mod 4)(31 downto 16);
 							OutgoingMemData(47 downto 32) <= tmp_cache(counter mod 4)(47 downto 32);
@@ -174,13 +185,12 @@ begin
 						tmp_cache(counter mod 4)(72 downto 64) <= ADD_TAG; -- change tag
 						counter <= counter + 1;
 						miss_t <= '0';
-						memRead <= '0';
+						memRead_t <= '0';
 					elsif (miss_t ='1' and memBusy ='0' and memWrite_t ='1') then
 						-- We just wrote oldest cache line to memory, now we need to pull block into cache
 						memWrite_t <= '0';
-						memRead <= '1';
+						memRead_t <= '1';
 						memBusy <= '1';
-						ADD_TAG <= IncomingADDR(10 downto 2);
 					elsif (memBusy='1') then
 						if (memReady = '1') then
 							memBusy <= '0';
@@ -201,6 +211,7 @@ begin
 	D_memBusy <= memBusy;
 	miss <= miss_t;
 	memWrite <= memWrite_t;
+	memRead <= memRead_t;
 	D_line0	<= tmp_cache(0);
 	D_line1	<= tmp_cache(1);
 	D_line2	<= tmp_cache(2);
