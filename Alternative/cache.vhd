@@ -47,10 +47,10 @@ begin
 	process(clk, rst, Mread, Mwrite, IncomingADDR, IncomingDATA, IncomingMemDATA, memReady)
 	begin
 		if rst='1' then	-- random cache values preloaded
-			tmp_cache <= (0 => "0" & x"C9C956789012345678",	   -- TAG: 9bit, DATA: 3A BF C3 34
-							  1 => "0" & x"CACA56789012345678",		-- TAG: 8, DATA: 25 D4 5F 11
-							  2 => "0" & x"CBCB56789012345678",		-- TAG: 1, DATA: 79 8C AA 62
-							  3 => "0" & x"CCCC56789012345678"		-- TAG: D, DATA: 90 6B 13 FF
+			tmp_cache <= (0 => "0" & x"00A1111222233334444",	   
+							  1 => "0" & x"CACA56789012345678",		
+							  2 => "0" & x"CBCB56789012345678",		
+							  3 => "0" & x"CCCC56789012345678"		
 							  );
 			miss_t <= '0';
 			ADD_TAG <= "000000000";
@@ -58,12 +58,12 @@ begin
 			counter <= 1;
 			memWrite_t <= '0';
 		else
-			if (clk'event and clk = '1') then 
+			if (clk'event and clk = '1') then
+				ADD_TAG <= IncomingADDR(10 downto 2);
+				ADD_WORD <= IncomingADDR(1 downto 0);
 				if (Mread ='0' and Mwrite ='1') then
 					data_ready <= '0';
 					if (miss_t ='0' and memBusy ='0') then	-- write incoming data to cache
-						ADD_TAG <= IncomingADDR(10 downto 2);
-						ADD_WORD <= IncomingADDR(1 downto 0);
 						if (ADD_TAG=tmp_cache(0)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => tmp_cache(0)(15 downto 0) <= IncomingDATA; -- change W1
@@ -113,7 +113,6 @@ begin
 						counter <= counter + 1;
 						miss_t <= '0';
 						memRead <= '0';
-						data_ready <= '1';
 					elsif (memBusy = '1') then
 						if (memReady = '1') then
 							memBusy <= '0';
@@ -124,8 +123,6 @@ begin
 				elsif (Mread ='1' and Mwrite ='0') then
 					data_ready <= '0';
 					if (miss_t ='0' and memBusy ='0') then	-- output outgoing data from cache						 
-						ADD_TAG <= IncomingADDR(10 downto 2);
-						ADD_WORD <= IncomingADDR(1 downto 0);
 						if (ADD_TAG=tmp_cache(0)(72 downto 64)) then -- compare tags
 							case ADD_WORD is
 								when "00" => OutgoingDATA <= tmp_cache(0)(15 downto 0); -- output W1
@@ -178,7 +175,6 @@ begin
 						counter <= counter + 1;
 						miss_t <= '0';
 						memRead <= '0';
-						data_ready <= '1';
 					elsif (miss_t ='1' and memBusy ='0' and memWrite_t ='1') then
 						-- We just wrote oldest cache line to memory, now we need to pull block into cache
 						memWrite_t <= '0';
